@@ -3,2803 +3,893 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Siripathi Metal Crushers — Sri Lanka's Trusted Quarry</title>
+<title>Siripathi Metal Crushers — Quarry-Direct Aggregate, Piliyandala</title>
+<meta name="description" content="Siripathi Metal Crushers has supplied premium crushed aggregate — 6/4 Rubble, 3/4 Metal, 1/4 Metal, Dust, Chips, ABC, Inch Metal — from our own Piliyandala quarry for over three decades. Trusted by 10,000+ clients across Sri Lanka.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* ═══════════════════════════════════════════
-   DESIGN TOKENS — 8pt grid, semantic palette
-   ═══════════════════════════════════════════ */
-:root {
-  /* Colors */
-  --c-bg:        #080808;
-  --c-bg-1:      #0f0f0f;
-  --c-bg-2:      #141414;
-  --c-bg-3:      #1a1a1a;
-  --c-bg-4:      #222222;
-  --c-surface:   #1c1c1c;
-  --c-border:    rgba(255,255,255,0.07);
-  --c-border-2:  rgba(255,255,255,0.12);
+/* ============================================================
+   DESIGN TOKENS
+   Brand palette (client-specified, used exclusively across the site):
+   #FDFBD4 pale khaki · #D9D7B6 sand · #878672 olive · #545333 deep olive
+   All four are drawn straight from this set — deep olive doubles as
+   both the ink/text color and the dark section background.
+   ============================================================ */
+:root{
+  --sand:      #D9D7B6;
+  --cream:     #FDFBD4;
+  --orange:    #545333;
+  --gold:      #878672;
 
-  /* Brand */
-  --c-gold:      #C9961A;
-  --c-gold-h:    #E5B42A;
-  --c-gold-dim:  #7A5C10;
-  --c-gold-bg:   rgba(201,150,26,0.08);
-  --c-teal:      #0E7A6E;
-  --c-teal-h:    #12A090;
-  --c-teal-dim:  #094F47;
-  --c-teal-bg:   rgba(14,122,110,0.08);
-  --c-crim:      #8B1A2E;
-  --c-crim-h:    #B02038;
-  --c-crim-bg:   rgba(139,26,46,0.08);
+  --ink:       #545333;
+  --ink-2:     #5C4E38;
+  --ink-3:     #8A7A5E;
 
-  /* Text */
-  --c-text-1:    #F0EBE0;
-  --c-text-2:    #A09888;
-  --c-text-3:    #5A5248;
-  --c-text-inv:  #080808;
+  --bg:        var(--sand);
+  --bg-warm:   var(--cream);
+  --surface:   var(--cream);
+  --line:      rgba(84,83,51,0.10);
+  --line-2:    rgba(84,83,51,0.16);
 
-  /* Spacing (8pt grid) */
-  --sp-1:  4px;
-  --sp-2:  8px;
-  --sp-3:  12px;
-  --sp-4:  16px;
-  --sp-5:  20px;
-  --sp-6:  24px;
-  --sp-8:  32px;
-  --sp-10: 40px;
-  --sp-12: 48px;
-  --sp-16: 64px;
-  --sp-20: 80px;
-  --sp-24: 96px;
-  --sp-32: 128px;
+  --max-w: 1360px;
+  --gutter: clamp(22px, 5vw, 72px);
+  --nav-h: 84px;
 
-  /* Typography scale */
-  --fs-xs:   11px;
-  --fs-sm:   13px;
-  --fs-base: 16px;
-  --fs-lg:   18px;
-  --fs-xl:   22px;
-  --fs-2xl:  28px;
-  --fs-3xl:  36px;
-  --fs-4xl:  48px;
-  --fs-5xl:  64px;
-  --fs-6xl:  80px;
-  --fs-7xl:  100px;
+  --ease-out: cubic-bezier(0.16,1,0.3,1);
+  --ease-spring: cubic-bezier(0.34,1.56,0.64,1);
+  --t-fast: 180ms cubic-bezier(0.16,1,0.3,1);
+  --t-base: 420ms cubic-bezier(0.16,1,0.3,1);
+  --t-slow: 700ms cubic-bezier(0.16,1,0.3,1);
 
-  /* Radius */
-  --r-sm:  4px;
-  --r-md:  8px;
-  --r-lg:  16px;
+  --r-sm: 10px;
+  --r-md: 18px;
+  --r-lg: 28px;
+  --r-pill: 999px;
 
-  /* Transition */
-  --t-fast:   150ms ease-out;
-  --t-base:   250ms ease-out;
-  --t-slow:   400ms cubic-bezier(0.16,1,0.3,1);
-
-  /* Shadow */
-  --shadow-sm:  0 1px 3px rgba(0,0,0,0.5);
-  --shadow-md:  0 4px 16px rgba(0,0,0,0.6);
-  --shadow-lg:  0 16px 40px rgba(0,0,0,0.7);
-
-  /* Layout */
-  --nav-h:      72px;
-  --max-w:      1380px;
-  --gutter:     clamp(24px, 4vw, 64px);
+  --shadow-sm: 0 2px 10px rgba(84,83,51,0.06);
+  --shadow-md: 0 12px 32px rgba(84,83,51,0.10);
+  --shadow-lg: 0 30px 70px rgba(84,83,51,0.16);
+  --shadow-gold: 0 14px 36px rgba(135,134,114,0.35);
 }
 
-/* ═══════════════ RESET ═══════════════ */
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; font-size:16px; }
-body {
-  background: var(--c-bg);
-  color: var(--c-text-1);
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: 400;
-  line-height: 1.6;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
-img { display:block; max-width:100%; }
-a { text-decoration:none; color:inherit; }
-button { font-family:inherit; cursor:pointer; border:none; background:none; }
+*,*::before,*::after{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } * { animation-duration:0.001ms !important; transition-duration:0.001ms !important; } }
 
-/* ═══════════════ UTILITIES ═══════════════ */
-.container {
-  width:100%;
-  max-width: var(--max-w);
-  margin-inline: auto;
-  padding-inline: var(--gutter);
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Manrope',system-ui,sans-serif;
+  font-weight:400;
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
 }
-.label-sm {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: var(--fs-xs);
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--c-gold);
-}
-.label-teal { color: var(--c-teal-h); }
-.sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }
+img{ display:block; max-width:100%; }
+a{ text-decoration:none; color:inherit; }
+button{ font-family:inherit; cursor:pointer; border:none; background:none; }
+ul{ list-style:none; }
 
-/* ═══════════════ SKIP LINK ═══════════════ */
-.skip-link {
-  position:absolute; top:-100px; left:var(--sp-4); z-index:9999;
-  background:var(--c-gold); color:var(--c-text-inv);
-  padding:var(--sp-2) var(--sp-4);
-  font-size:var(--fs-sm); font-weight:600;
-  transition: top var(--t-fast);
-}
-.skip-link:focus { top:var(--sp-4); }
+.container{ width:100%; max-width:var(--max-w); margin-inline:auto; padding-inline:var(--gutter); }
 
-/* ═══════════════ NAV ═══════════════ */
-#nav {
-  position: fixed; inset-block-start:0; inset-inline:0;
-  height: var(--nav-h);
-  z-index: 100;
-  display: flex; align-items: center;
-  background: rgba(8,8,8,0);
-  border-bottom: 1px solid rgba(255,255,255,0);
-  transition: background var(--t-slow), border-color var(--t-slow);
+.eyebrow{
+  display:inline-flex; align-items:center; gap:10px;
+  font-family:'Manrope',sans-serif; font-size:12.5px; font-weight:700;
+  letter-spacing:0.16em; text-transform:uppercase; color:var(--gold);
 }
-#nav.solid {
-  background: rgba(8,8,8,0.96);
-  border-bottom-color: var(--c-border);
-  backdrop-filter: blur(12px);
-}
-.nav-inner {
-  display: flex; align-items:center; justify-content:space-between;
-  width:100%; max-width:var(--max-w);
-  padding-inline:var(--gutter);
-  margin-inline:auto;
-}
-.nav-brand {
-  display:flex; align-items:center; gap:var(--sp-3);
-  flex-shrink:0;
-}
-.nav-logo { height:44px; width:auto; }
-.nav-brand-text { display:flex; flex-direction:column; gap:1px; }
-.nav-brand-name {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: var(--fs-base);
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: var(--c-gold);
-  line-height:1;
-}
-.nav-brand-sub {
-  font-size: var(--fs-xs);
-  font-weight: 400;
-  letter-spacing: 0.1em;
-  color: var(--c-text-3);
-  text-transform:uppercase;
-}
-.nav-links {
-  display:flex; align-items:center; gap:var(--sp-8);
-  list-style:none;
-}
-.nav-links a {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: var(--fs-sm);
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  color: var(--c-text-2);
-  transition: color var(--t-fast);
-  padding-block:var(--sp-2);
-  position:relative;
-}
-.nav-links a::after {
-  content:'';
-  position:absolute; bottom:0; left:0; right:0;
-  height:1px; background:var(--c-gold);
-  transform:scaleX(0); transform-origin:left;
-  transition: transform var(--t-base);
-}
-.nav-links a:hover { color:var(--c-text-1); }
-.nav-links a:hover::after, .nav-links a:focus-visible::after { transform:scaleX(1); }
-.nav-links a:focus-visible { outline:2px solid var(--c-gold); outline-offset:4px; }
-.btn-primary {
-  display:inline-flex; align-items:center; gap:var(--sp-2);
-  padding: 11px var(--sp-6);
-  background: var(--c-gold);
-  color: var(--c-text-inv);
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: var(--fs-sm);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform:uppercase;
-  border-radius: var(--r-sm);
-  transition: background var(--t-fast), transform var(--t-fast), box-shadow var(--t-fast);
-  cursor:pointer;
-  min-height:44px;
-}
-.btn-primary:hover { background:var(--c-gold-h); transform:translateY(-1px); box-shadow:0 6px 20px rgba(201,150,26,0.35); }
-.btn-primary:active { transform:translateY(0); }
-.btn-primary:focus-visible { outline:2px solid var(--c-gold); outline-offset:3px; }
-.btn-outline {
-  display:inline-flex; align-items:center; gap:var(--sp-2);
-  padding:11px var(--sp-6);
-  background:transparent;
-  color:var(--c-text-1);
-  border:1px solid var(--c-border-2);
-  font-family:'Space Grotesk',sans-serif;
-  font-size:var(--fs-sm); font-weight:600;
-  letter-spacing:0.06em;
-  border-radius:var(--r-sm);
-  transition: all var(--t-fast);
-  cursor:pointer; min-height:44px;
-}
-.btn-outline:hover { border-color:var(--c-gold); color:var(--c-gold); }
-.btn-outline:focus-visible { outline:2px solid var(--c-gold); outline-offset:3px; }
-.nav-menu-btn {
-  display:none; min-width:44px; min-height:44px;
-  align-items:center; justify-content:center;
-  color:var(--c-text-2);
-  border:1px solid var(--c-border);
-  border-radius:var(--r-sm);
-  transition:color var(--t-fast), border-color var(--t-fast);
-}
-.nav-menu-btn:hover { color:var(--c-gold); border-color:var(--c-gold); }
-.nav-menu-btn:focus-visible { outline:2px solid var(--c-gold); outline-offset:3px; }
-.hamburger { width:20px; height:14px; position:relative; }
-.hamburger span {
-  display:block; width:100%; height:1.5px;
-  background:currentColor;
-  position:absolute; left:0;
-  transition:all var(--t-base);
-}
-.hamburger span:nth-child(1){ top:0; }
-.hamburger span:nth-child(2){ top:50%; transform:translateY(-50%); }
-.hamburger span:nth-child(3){ bottom:0; }
-.hamburger.open span:nth-child(1){ top:50%; transform:translateY(-50%) rotate(45deg); }
-.hamburger.open span:nth-child(2){ opacity:0; }
-.hamburger.open span:nth-child(3){ bottom:50%; transform:translateY(50%) rotate(-45deg); }
+.eyebrow::before{ content:''; width:22px; height:2px; background:var(--gold); border-radius:2px; }
 
-/* Mobile nav drawer */
-#mobile-nav {
-  display:none;
-  position:fixed; inset-block-start:var(--nav-h); inset-inline:0;
-  background:rgba(8,8,8,0.98);
-  backdrop-filter:blur(16px);
-  z-index:99;
-  padding:var(--sp-8) var(--gutter);
-  border-top:1px solid var(--c-border);
-  transform:translateY(-8px); opacity:0;
-  transition: transform var(--t-slow), opacity var(--t-slow);
-}
-#mobile-nav.open { transform:translateY(0); opacity:1; }
-.mobile-nav-links {
-  list-style:none;
-  display:flex; flex-direction:column; gap:0;
-}
-.mobile-nav-links a {
-  display:block;
-  padding: var(--sp-4) 0;
-  font-family:'Space Grotesk',sans-serif;
-  font-size:var(--fs-xl);
-  font-weight:600;
-  color:var(--c-text-2);
-  border-bottom:1px solid var(--c-border);
-  transition:color var(--t-fast);
-}
-.mobile-nav-links a:hover { color:var(--c-gold); }
-.mobile-nav-cta { margin-top:var(--sp-6); }
+h1,h2,h3,h4{ font-family:'Fraunces',serif; font-weight:500; color:var(--ink); letter-spacing:-0.01em; }
 
-/* ═══════════════ HERO ═══════════════ */
-#hero {
-  position:relative;
-  min-height:100dvh;
-  display:grid;
-  grid-template-columns: 1fr;
-  align-items:center;
-  overflow:hidden;
-  padding-top:var(--nav-h);
+.h-display{ font-size:clamp(42px,7vw,92px); line-height:0.98; font-weight:500; font-optical-sizing:auto; }
+.h-section{ font-size:clamp(32px,4.2vw,54px); line-height:1.04; font-weight:500; }
+.h-card{ font-size:clamp(20px,2vw,24px); font-weight:600; }
+
+.sub{ font-size:clamp(16px,1.6vw,19px); color:var(--ink-2); font-weight:400; max-width:56ch; }
+
+.reveal{ opacity:0; transform:translateY(28px); transition:opacity var(--t-slow), transform var(--t-slow); }
+.reveal.in{ opacity:1; transform:translateY(0); }
+.reveal-stagger > *{ opacity:0; transform:translateY(24px); transition:opacity var(--t-base), transform var(--t-base); }
+.reveal-stagger.in > *{ opacity:1; transform:translateY(0); }
+.reveal-stagger.in > *:nth-child(1){ transition-delay:0ms; }
+.reveal-stagger.in > *:nth-child(2){ transition-delay:80ms; }
+.reveal-stagger.in > *:nth-child(3){ transition-delay:160ms; }
+.reveal-stagger.in > *:nth-child(4){ transition-delay:240ms; }
+.reveal-stagger.in > *:nth-child(5){ transition-delay:320ms; }
+.reveal-stagger.in > *:nth-child(6){ transition-delay:400ms; }
+.reveal-stagger.in > *:nth-child(7){ transition-delay:480ms; }
+.reveal-stagger.in > *:nth-child(8){ transition-delay:560ms; }
+
+/* ============================================================ BUTTONS */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  padding:16px 30px; border-radius:var(--r-pill);
+  font-family:'Manrope',sans-serif; font-size:15px; font-weight:700; letter-spacing:0.01em;
+  transition:transform var(--t-fast), box-shadow var(--t-fast), background var(--t-fast);
+  will-change:transform;
 }
-.hero-bg-image {
-  position:absolute; inset:0; z-index:0;
-  background-image: url("Image 5.jpeg");
-  background-size:cover;
-  background-position:center 40%;
-  background-repeat:no-repeat;
-  filter:brightness(0.7) saturate(0.6);
-  transform:scale(1.02);
-  transition: transform 8s ease-out;
+.btn:active{ transform:scale(0.96); }
+.btn-primary{
+  background:linear-gradient(135deg,var(--gold),var(--orange));
+  color:var(--ink); box-shadow:var(--shadow-gold);
 }
-.hero-bg-image.loaded { transform:scale(1); }
-.hero-vignette {
-  position:absolute; inset:0; z-index:1;
+.btn-primary:hover{ transform:translateY(-2px); box-shadow:0 20px 44px rgba(135,134,114,0.44); }
+.btn-ghost{
+  background:transparent; color:var(--ink); border:1.5px solid var(--line-2);
+}
+.btn-ghost:hover{ background:var(--surface); border-color:var(--gold); }
+.btn-light{ background:var(--surface); color:var(--ink); box-shadow:var(--shadow-sm); }
+.btn-light:hover{ transform:translateY(-2px); box-shadow:var(--shadow-md); }
+.btn-sm{ padding:12px 22px; font-size:13.5px; }
+
+/* ============================================================ NAV */
+#nav{
+  position:fixed; inset-block-start:0; inset-inline:0; z-index:200;
+  height:var(--nav-h);
+  display:flex; align-items:center;
+  background:rgba(253,251,212,0);
+  border-bottom:1px solid rgba(84,83,51,0);
+  transition:background var(--t-base), border-color var(--t-base), height var(--t-base);
+}
+#nav.solid{
+  background:rgba(253,251,212,0.88);
+  backdrop-filter:blur(16px) saturate(160%);
+  -webkit-backdrop-filter:blur(16px) saturate(160%);
+  border-bottom-color:var(--line);
+  height:72px;
+}
+.nav-inner{ display:flex; align-items:center; justify-content:space-between; width:100%; max-width:var(--max-w); padding-inline:var(--gutter); margin-inline:auto; }
+.nav-brand{ display:flex; align-items:center; gap:12px; }
+.nav-logo{ height:42px; width:auto; transition:height var(--t-base); }
+#nav.solid .nav-logo{ height:36px; }
+.nav-brand-text{ display:flex; flex-direction:column; gap:1px; }
+.nav-brand-name{ font-family:'Fraunces',serif; font-size:17px; font-weight:600; color:var(--ink); line-height:1.1; }
+.nav-brand-sub{ font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-3); }
+.nav-links{ display:flex; align-items:center; gap:40px; }
+.nav-links a{
+  font-size:14px; font-weight:600; color:var(--ink-2);
+  position:relative; padding-block:6px; transition:color var(--t-fast);
+}
+.nav-links a::after{ content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:var(--gold); border-radius:2px; transform:scaleX(0); transform-origin:left; transition:transform var(--t-base); }
+.nav-links a:hover{ color:var(--ink); }
+.nav-links a:hover::after{ transform:scaleX(1); }
+.nav-cta{ display:flex; align-items:center; gap:14px; }
+.nav-tel{ display:none; }
+@media (min-width:900px){ .nav-tel{ display:flex; flex-direction:column; align-items:flex-end; line-height:1.2; } }
+.nav-tel-label{ font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-3); }
+.nav-tel-num{ font-size:14px; font-weight:700; color:var(--ink); }
+
+.nav-toggle{ display:none; width:40px; height:40px; align-items:center; justify-content:center; }
+.nav-toggle span{ display:block; width:22px; height:2px; background:var(--ink); position:relative; transition:background var(--t-fast); }
+.nav-toggle span::before,.nav-toggle span::after{ content:''; position:absolute; left:0; width:22px; height:2px; background:var(--ink); transition:transform var(--t-fast); }
+.nav-toggle span::before{ top:-7px; }
+.nav-toggle span::after{ top:7px; }
+
+@media (max-width:900px){
+  .nav-links{ display:none; }
+  .nav-toggle{ display:flex; }
+  .nav-cta .btn-sm{ padding:10px 16px; font-size:12.5px; }
+}
+
+.mobile-menu{
+  position:fixed; inset:0; z-index:190; background:var(--cream);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:32px;
+  opacity:0; visibility:hidden; transform:translateY(-8px);
+  transition:opacity var(--t-base), transform var(--t-base), visibility var(--t-base);
+}
+.mobile-menu.open{ opacity:1; visibility:visible; transform:translateY(0); }
+.mobile-menu a{ font-family:'Fraunces',serif; font-size:30px; font-weight:500; color:var(--ink); }
+
+/* ============================================================ HERO */
+#hero{
+  position:relative; min-height:100svh; display:flex; align-items:flex-end;
+  padding-top:var(--nav-h); overflow:hidden;
+}
+.hero-media{ position:absolute; inset:0; z-index:0; }
+.hero-media img{ width:100%; height:100%; object-fit:cover; transform:scale(1.06); }
+.hero-media::after{
+  content:''; position:absolute; inset:0;
   background:
-    linear-gradient(to right, rgba(8,8,8,0.95) 0%, rgba(8,8,8,0.7) 50%, rgba(8,8,8,0.3) 100%),
-    linear-gradient(to top, rgba(8,8,8,1) 0%, rgba(8,8,8,0) 40%);
+    linear-gradient(180deg, rgba(84,83,51,0.30) 0%, rgba(84,83,51,0.20) 32%, rgba(84,83,51,0.55) 78%, rgba(84,83,51,0.78) 100%);
 }
-.hero-content {
-  position:relative; z-index:2;
-  padding-block: var(--sp-24);
-  container-type:inline-size;
+.hero-content{ position:relative; z-index:2; width:100%; padding-bottom:clamp(56px,8vw,104px); }
+.hero-eyebrow{
+  display:inline-flex; align-items:center; gap:10px;
+  background:rgba(253,251,212,0.16); border:1px solid rgba(253,251,212,0.35);
+  backdrop-filter:blur(6px);
+  padding:8px 18px 8px 14px; border-radius:var(--r-pill);
+  font-size:12.5px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--cream);
+  margin-bottom:26px;
 }
-.hero-eyebrow {
-  display:flex; align-items:center; gap:var(--sp-3);
-  margin-bottom:var(--sp-6);
-  opacity:0; transform:translateY(16px);
-  animation: fadeUp 0.7s 0.2s ease-out forwards;
+.hero-eyebrow .dot{ width:7px; height:7px; border-radius:50%; background:var(--orange); box-shadow:0 0 0 4px rgba(84,83,51,0.28); }
+.hero-title{ color:var(--cream); max-width:16ch; }
+.hero-title em{ font-style:italic; color:var(--cream); font-weight:400; }
+.hero-sub{ color:rgba(255,252,242,0.86); max-width:52ch; margin-top:22px; font-size:clamp(16px,1.7vw,20px); }
+.hero-actions{ display:flex; flex-wrap:wrap; gap:16px; margin-top:38px; }
+.hero-stats{
+  display:grid; grid-template-columns:repeat(4,auto); gap:clamp(20px,4vw,56px);
+  margin-top:64px; padding-top:32px; border-top:1px solid rgba(253,251,212,0.25);
+  max-width:920px;
 }
-.hero-eyebrow-line {
-  width:32px; height:1px; background:var(--c-gold);
-  flex-shrink:0;
-}
-.hero-headline {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(var(--fs-4xl), 7.5vw, var(--fs-7xl));
-  font-weight: 700;
-  line-height: 0.95;
-  letter-spacing: -0.02em;
-  color: var(--c-text-1);
-  margin-bottom:var(--sp-8);
-  max-width:14ch;
-  opacity:0; transform:translateY(20px);
-  animation: fadeUp 0.8s 0.35s ease-out forwards;
-}
-.hero-headline-gold { color:var(--c-gold); display:block; }
-.hero-desc {
-  font-size:clamp(var(--fs-base), 2vw, var(--fs-lg));
-  line-height:1.7;
-  color:var(--c-text-2);
-  max-width:48ch;
-  margin-bottom:var(--sp-10);
-  font-weight:300;
-  opacity:0; transform:translateY(16px);
-  animation: fadeUp 0.8s 0.5s ease-out forwards;
-}
-.hero-actions {
-  display:flex; flex-wrap:wrap; gap:var(--sp-3);
-  opacity:0; transform:translateY(12px);
-  animation: fadeUp 0.7s 0.65s ease-out forwards;
-}
-.hero-scroll-indicator {
-  position:absolute; bottom:var(--sp-8); left:50%;
-  transform:translateX(-50%);
-  z-index:2;
-  display:flex; flex-direction:column; align-items:center; gap:var(--sp-2);
-  animation:bounce 2s infinite;
-  opacity:0; animation: fadeIn 1s 1.2s forwards, bounce 2s 2.2s infinite;
-}
-.hero-scroll-line {
-  width:1px; height:40px;
-  background:linear-gradient(to bottom, var(--c-gold), transparent);
-}
-.hero-scroll-text {
-  font-size:var(--fs-xs); letter-spacing:0.2em;
-  color:var(--c-text-3); text-transform:uppercase;
-}
+.hero-stat-num{ font-family:'Fraunces',serif; font-size:clamp(24px,3vw,38px); font-weight:600; color:var(--cream); line-height:1; }
+.hero-stat-label{ font-size:12px; font-weight:600; color:rgba(255,252,242,0.7); margin-top:6px; letter-spacing:0.02em; }
 
-/* Hero stat bar */
-.hero-stats-bar {
-  position:absolute; bottom:0; inset-inline:0; z-index:3;
-  background:rgba(15,15,15,0.9);
-  backdrop-filter:blur(8px);
-  border-top:1px solid var(--c-border);
+.scroll-cue{
+  position:absolute; right:var(--gutter); bottom:36px; z-index:2;
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+  color:rgba(255,252,242,0.75); font-size:11px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
 }
-.hero-stats-inner {
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  max-width:var(--max-w); margin-inline:auto;
-  padding-inline:var(--gutter);
-}
-.hero-stat {
-  padding: var(--sp-5) var(--sp-6);
-  border-right:1px solid var(--c-border);
-  position:relative;
-}
-.hero-stat:last-child { border-right:none; }
-.hero-stat-val {
-  font-family:'Space Grotesk',sans-serif;
-  font-size:var(--fs-3xl);
-  font-weight:700;
-  color:var(--c-gold);
-  line-height:1;
-  margin-bottom:var(--sp-1);
-}
-.hero-stat-label {
-  font-size:var(--fs-xs); letter-spacing:0.1em;
-  color:var(--c-text-3); text-transform:uppercase;
-}
+.scroll-cue .line{ width:1px; height:42px; background:linear-gradient(180deg, rgba(253,251,212,0.9), transparent); animation:scrollpulse 2.2s ease-in-out infinite; }
+@keyframes scrollpulse{ 0%,100%{ opacity:0.35; } 50%{ opacity:1; } }
+@media (max-width:700px){ .scroll-cue{ display:none; } .hero-stats{ grid-template-columns:repeat(2,auto); } }
 
-/* ═══════════════ SECTION SHARED ═══════════════ */
-.section {
-  padding-block:clamp(var(--sp-16),8vw,var(--sp-32));
+/* ============================================================ MARQUEE STRIP */
+.strip{
+  background:linear-gradient(90deg,var(--gold),var(--orange)); color:var(--ink); overflow:hidden;
+  padding-block:14px; white-space:nowrap;
 }
-.section-header { margin-bottom:var(--sp-12); }
-.section-header-flex {
-  display:flex; justify-content:space-between;
-  align-items:flex-end; flex-wrap:wrap; gap:var(--sp-6);
-  margin-bottom:var(--sp-12);
-}
-.section-eyebrow {
-  display:flex; align-items:center; gap:var(--sp-3);
-  margin-bottom:var(--sp-4);
-}
-.eyebrow-dot {
-  width:6px; height:6px; border-radius:50%;
-  background:var(--c-gold); flex-shrink:0;
-}
-.section-title {
-  font-family:'Space Grotesk',sans-serif;
-  font-size:clamp(var(--fs-2xl),4.5vw,var(--fs-5xl));
-  font-weight:700;
-  letter-spacing:-0.02em;
-  line-height:1.05;
-  color:var(--c-text-1);
-}
-.section-title em {
-  font-style:italic;
-  font-weight:300;
-  color:var(--c-gold);
-}
-.section-body {
-  font-size:var(--fs-lg);
-  line-height:1.75;
-  color:var(--c-text-2);
-  font-weight:300;
-  max-width:60ch;
-}
+.strip-track{ display:inline-flex; gap:56px; animation:marquee 34s linear infinite; }
+.strip-track span{ font-family:'Fraunces',serif; font-size:15px; font-weight:500; letter-spacing:0.02em; opacity:0.9; display:inline-flex; align-items:center; gap:56px; }
+.strip-track span::after{ content:'◆'; color:var(--cream); font-size:9px; }
+@keyframes marquee{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
 
-/* ═══════════════ MARQUEE ═══════════════ */
-.marquee-wrap {
-  background:var(--c-teal-dim);
-  border-block:1px solid rgba(14,122,110,0.4);
-  overflow:hidden;
-  padding-block:var(--sp-3);
-}
-.marquee-track {
-  display:flex; gap:0;
-  width:max-content;
-  animation:marquee 28s linear infinite;
-}
-.marquee-item {
-  display:flex; align-items:center; gap:var(--sp-6);
-  padding-inline:var(--sp-8);
-  white-space:nowrap;
-  font-family:'Space Grotesk',sans-serif;
-  font-size:var(--fs-sm);
-  font-weight:500;
-  letter-spacing:0.12em;
-  text-transform:uppercase;
-  color:rgba(18,160,144,0.9);
-}
-.marquee-sep { color:var(--c-gold); }
+/* ============================================================ SECTIONS GENERAL */
+section{ position:relative; padding-block:clamp(76px,10vw,150px); }
+.section-head{ display:flex; flex-direction:column; gap:18px; max-width:760px; margin-bottom:clamp(44px,6vw,76px); }
+.section-head.center{ align-items:center; text-align:center; margin-inline:auto; }
+.section-split{ display:flex; justify-content:space-between; align-items:flex-end; gap:32px; flex-wrap:wrap; }
 
-/* ═══════════════ ABOUT ═══════════════ */
-#about { background:var(--c-bg-1); }
-.about-grid {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:clamp(var(--sp-10),5vw,var(--sp-24));
-  align-items:center;
-}
-.about-media {
-  position:relative;
-}
-.about-img-main {
-  width:100%; aspect-ratio:4/5;
-  object-fit:cover;
-  filter:saturate(0.85);
-  display:block;
-}
-.about-img-secondary {
-  position:absolute;
-  bottom:calc(-1 * var(--sp-8));
-  right:calc(-1 * var(--sp-8));
-  width:55%;
-  aspect-ratio:4/3;
-  object-fit:cover;
-  object-position: center;
-  filter:saturate(0.85);
-  border:3px solid var(--c-bg-1);
-}
-.about-badge {
-  position:absolute; top:var(--sp-6); left:var(--sp-6);
-  background:var(--c-gold);
-  padding:var(--sp-4) var(--sp-5);
-}
-.about-badge-num {
-  font-family:'Space Grotesk',sans-serif;
-  font-size:var(--fs-3xl);
-  font-weight:700;
-  color:var(--c-text-inv);
-  line-height:1;
-}
-.about-badge-label {
-  font-size:var(--fs-xs);
-  font-weight:600;
-  letter-spacing:0.1em;
-  text-transform:uppercase;
-  color:rgba(8,8,8,0.6);
-  line-height:1.3;
-  margin-top:var(--sp-1);
-}
-.about-text {}
-.about-copy {
-  font-size:var(--fs-base);
-  line-height:1.8;
-  color:var(--c-text-2);
-  font-weight:300;
-  margin-bottom:var(--sp-6);
-}
-.about-pillars {
-  display:grid; grid-template-columns:1fr 1fr;
-  gap:var(--sp-2);
-  margin-top:var(--sp-8);
-}
-.pillar-card {
-  padding:var(--sp-5) var(--sp-5);
-  background:var(--c-bg-3);
-  border:1px solid var(--c-border);
-  border-left:3px solid var(--c-gold);
-  transition: background var(--t-base), border-left-color var(--t-base);
-}
-.pillar-card:hover { background:var(--c-bg-4); border-left-color:var(--c-teal); }
-.pillar-icon {
-  width:36px; height:36px; margin-bottom:var(--sp-3);
-}
-.pillar-title {
-  font-family:'Space Grotesk',sans-serif;
-  font-size:var(--fs-sm); font-weight:700;
-  letter-spacing:0.04em; text-transform:uppercase;
-  color:var(--c-text-1); margin-bottom:var(--sp-2);
-}
-.pillar-desc {
-  font-size:var(--fs-sm); line-height:1.65;
-  color:var(--c-text-2);
-}
+.bg-cream{ background:var(--bg-warm); }
+.bg-sand{ background:linear-gradient(180deg, var(--sand) 0%, #C4B583 100%); }
+.bg-ink{ background:var(--ink); color:var(--cream); }
+.bg-ink h2, .bg-ink h3, .bg-ink h4{ color:var(--cream); }
+.bg-ink .sub{ color:rgba(253,251,212,0.72); }
 
-/* ═══════════════ PRODUCTS ═══════════════ */
-#products { background:var(--c-bg); }
-.products-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(300px,1fr));
-  gap:1px;
-  background:var(--c-border);
-  border:1px solid var(--c-border);
-}
-.product-card {
-  background:var(--c-bg-1);
-  padding:var(--sp-8) var(--sp-6);
-  position:relative;
-  overflow:hidden;
-  cursor:pointer;
-  transition: background var(--t-base);
-  min-height:240px;
-  display:flex; flex-direction:column;
-}
-.product-card::before {
-  content:'';
-  position:absolute; inset-block-end:0; inset-inline:0;
-  height:3px; background:var(--c-gold);
-  transform:scaleX(0); transform-origin:left;
-  transition:transform var(--t-slow);
-}
-.product-card:hover { background:var(--c-bg-2); }
-.product-card:hover::before { transform:scaleX(1); }
-.product-card:focus-visible {
-  outline:2px solid var(--c-gold); outline-offset:-2px;
-}
-.product-card:nth-child(3n)::before { background:var(--c-teal); }
-.product-card:nth-child(3n+2)::before { background:var(--c-crim); }
-.product-num {
-  font-family:'Space Grotesk',sans-serif;
-  font-size:var(--fs-4xl); font-weight:700;
-  color:rgba(255,255,255,0.04);
-  line-height:1;
-  margin-bottom:var(--sp-4);
-  letter-spacing:-0.04em;
-}
-.product-icon {
-  width:40px; height:40px; margin-bottom:var(--sp-5);
-  flex-shrink:0;
-}
-.product-name {
-  font-family:'Space Grotesk',sans-serif;
-  font-size:var(--fs-xl); font-weight:700;
-  letter-spacing:-0.01em;
-  color:var(--c-text-1);
-  margin-bottom:var(--sp-3);
-}
-.product-desc {
-  font-size:var(--fs-sm);
-  line-height:1.7;
-  color:var(--c-text-2);
-  flex:1;
-  margin-bottom:var(--sp-5);
-}
-.product-badge {
-  display:inline-flex;
-  padding:var(--sp-1) var(--sp-3);
-  font-size:var(--fs-xs); font-weight:600;
-  letter-spacing:0.1em; text-transform:uppercase;
-  border:1px solid var(--c-gold-dim);
-  color:var(--c-gold);
-  border-radius:2px;
-  align-self:flex-start;
-}
-.product-arrow {
-  position:absolute; inset-block-end:var(--sp-6); inset-inline-end:var(--sp-6);
-  width:32px; height:32px;
-  display:flex; align-items:center; justify-content:center;
-  border:1px solid var(--c-border-2);
-  color:var(--c-text-3);
-  border-radius:2px;
-  transition:all var(--t-fast);
-}
-.product-card:hover .product-arrow {
-  border-color:var(--c-gold); color:var(--c-gold);
-}
+/* ============================================================ PRODUCTS */
+.product-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+@media (max-width:1080px){ .product-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:560px){ .product-grid{ grid-template-columns:1fr; } }
 
-/* ═══════════════ COUNTERS ═══════════════ */
-#counters {
-  background:var(--c-crim);
-  padding-block:var(--sp-16);
-  position:relative; overflow:hidden;
+.p-card{
+  position:relative; background:var(--surface); border:1px solid var(--line);
+  border-radius:var(--r-md); padding:30px 26px 28px; overflow:hidden;
+  transition:transform var(--t-base), box-shadow var(--t-base), border-color var(--t-base);
 }
-#counters::before {
-  content:'';
-  position:absolute; inset:0;
-  background:linear-gradient(135deg, rgba(139,26,46,0.5) 0%, rgba(60,10,20,0.95) 100%);
+.p-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-lg); border-color:transparent; }
+.p-card::before{
+  content:''; position:absolute; top:0; left:0; right:0; height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--orange));
+  transform:scaleX(0); transform-origin:left; transition:transform var(--t-base);
 }
-.counters-grid {
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  position:relative; z-index:1;
-}
-.counter-cell {
-  text-align:center;
-  padding:var(--sp-6) var(--sp-4);
-  border-right:1px solid rgba(255,255,255,0.12);
-}
-.counter-cell:last-child { border-right:none; }
-.counter-val {
-  font-family:'Space Grotesk',sans-serif;
-  font-size:clamp(var(--fs-3xl),5vw,var(--fs-5xl));
-  font-weight:700;
-  line-height:1;
-  color:#fff;
-  margin-bottom:var(--sp-2);
-}
-.counter-suffix { color:rgba(201,150,26,0.9); }
-.counter-label {
-  font-size:var(--fs-xs);
-  letter-spacing:0.12em;
-  text-transform:uppercase;
-  color:rgba(255,255,255,0.45);
-}
-
-/* ═══════════════ GALLERY ═══════════════ */
-#gallery { background:var(--c-bg-1); }
-.gallery-mosaic {
-  display:grid;
-  grid-template-columns:repeat(12,1fr);
-  grid-auto-rows:220px;
-  gap:4px;
-}
-.g-item {
-  position:relative; overflow:hidden;
-  cursor:pointer;
-  background:var(--c-bg-3);
-}
-.g-item:nth-child(1){ grid-column:span 5; grid-row:span 2; }
-.g-item:nth-child(2){ grid-column:span 4; grid-row:span 1; }
-.g-item:nth-child(3){ grid-column:span 3; grid-row:span 1; }
-.g-item:nth-child(4){ grid-column:span 7; grid-row:span 1; }
-.g-item:nth-child(5){ grid-column:span 3; grid-row:span 1; }
-.g-item:nth-child(6){ grid-column:span 4; grid-row:span 1; }
-.g-item:nth-child(7){ grid-column:span 8; grid-row:span 1; }
-
-.g-img {
-  width:100%; height:100%;
-  object-fit:cover;
-  transition:transform 0.6s cubic-bezier(0.16,1,0.3,1), filter var(--t-slow);
-  filter:saturate(0.75) brightness(0.9);
-}
-.g-item:hover .g-img {
-  transform:scale(1.06);
-  filter:saturate(1) brightness(1);
-}
-.g-overlay {
-  position:absolute; inset:0;
-  background:linear-gradient(to top, rgba(8,8,8,0.88) 0%, rgba(8,8,8,0.2) 50%, transparent 100%);
-  opacity:0; transition:opacity var(--t-base);
-  display:flex; flex-direction:column;
-  justify-content:flex-end; padding:var(--sp-5);
-}
-.g-item:hover .g-overlay { opacity:1; }
-.g-caption {
-  font-family:'Space Grotesk',sans-serif;
-  font-size:var(--fs-sm); font-weight:700;
-  letter-spacing:0.06em; text-transform:uppercase;
-  color:var(--c-text-1);
-  transform:translateY(6px);
-  transition:transform var(--t-base);
-}
-.g-sub {
-  font-size:var(--fs-xs);
-  color:var(--c-text-2);
-  margin-top:var(--sp-1);
-  transform:translateY(6px);
-  transition:transform var(--t-base) 0.04s;
-}
-.g-item:hover .g-caption,
-.g-item:hover .g-sub { transform:translateY(0); }
-.g-expand {
-  position:absolute; inset-block-start:var(--sp-3); inset-inline-end:var(--sp-3);
-  width:32px; height:32px;
-  background:rgba(8,8,8,0.7);
-  border:1px solid rgba(201,150,26,0.4);
-  display:flex; align-items:center; justify-content:center;
-  color:var(--c-gold);
-  font-size:13px;
-  opacity:0; transition:opacity var(--t-fast);
-  border-radius:2px;
-}
-.g-item:hover .g-expand { opacity:1; }
-
-/* ═══════════════ WHY US ═══════════════ */
-#why { background:var(--c-bg); }
-.why-grid {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:1px;
-  background:var(--c-border);
-  border:1px solid var(--c-border);
-}
-.why-card {
-  padding:var(--sp-8) var(--sp-6);
-  background:var(--c-bg-1);
-  transition:background var(--t-base);
-  position:relative;
-}
-.why-card::before {
-  content:'';
-  position:absolute; inset-block-start:0; inset-inline:0;
-  height:2px; background:var(--c-gold);
-  transform:scaleX(0); transform-origin:left;
-  transition:transform var(--t-slow);
-}
-.why-card:hover { background:var(--c-bg-2); }
-.why-card:hover::before { transform:scaleX(1); }
-.why-icon-wrap {
-  width:52px; height:52px;
-  background:var(--c-gold-bg);
-  border:1px solid rgba(201,150,26,0.2);
-  border-radius:var(--r-sm);
-  display:flex; align-items:center; justify-content:center;
-  margin-bottom:var(--sp-5);
-}
-.why-icon { width:24px; height:24px; }
-.why-title {
-  font-family:'Space Grotesk',sans-serif;
-  font-size:var(--fs-lg); font-weight:700;
-  color:var(--c-text-1);
-  margin-bottom:var(--sp-3);
-  letter-spacing:-0.01em;
-}
-.why-desc {
-  font-size:var(--fs-sm); line-height:1.75;
-  color:var(--c-text-2);
-}
-
-/* ═══════════════ REVIEWS ═══════════════ */
-#reviews { background:var(--c-bg-1); }
-.reviews-tabs {
-  display:flex; gap:0;
-  border-bottom:1px solid var(--c-border);
-  margin-bottom:var(--sp-10);
-  overflow-x:auto;
-  scrollbar-width:none;
-}
-.reviews-tabs::-webkit-scrollbar { display:none; }
-.rev-tab {
-  padding:var(--sp-3) var(--sp-6);
-  font-family:'Space Grotesk',sans-serif;
-  font-size:var(--fs-sm); font-weight:600;
-  letter-spacing:0.06em; text-transform:uppercase;
-  color:var(--c-text-3);
-  border-bottom:2px solid transparent;
-  margin-bottom:-1px;
-  transition:all var(--t-fast);
-  white-space:nowrap;
-  min-height:44px;
-}
-.rev-tab.active { color:var(--c-gold); border-bottom-color:var(--c-gold); }
-.rev-tab:hover:not(.active) { color:var(--c-text-2); }
-.rev-tab:focus-visible { outline:2px solid var(--c-gold); outline-offset:2px; }
-.reviews-panel { display:none; }
-.reviews-panel.active {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:1px;
-  background:var(--c-border);
-  border:1px solid var(--c-border);
-  animation:fadeIn 0.3s ease-out;
-}
-.rev-card {
-  background:var(--c-bg-2);
-  padding:var(--sp-8) var(--sp-6);
-  transition:background var(--t-base);
-}
-.rev-card:hover { background:var(--c-bg-3); }
-.rev-stars {
-  display:flex; gap:var(--sp-1);
-  margin-bottom:var(--sp-5);
-}
-.star-icon { width:16px; height:16px; color:var(--c-gold); }
-.rev-quote {
-  font-family:'Space Grotesk',sans-serif;
-  font-size:var(--fs-base);
-  font-weight:300;
-  line-height:1.7;
-  color:var(--c-text-1);
-  margin-bottom:var(--sp-6);
-  font-style:italic;
-}
-.rev-author {
-  display:flex; align-items:center; gap:var(--sp-3);
-  padding-top:var(--sp-5);
-  border-top:1px solid var(--c-border);
-}
-.rev-avatar {
-  width:40px; height:40px; border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  font-family:'Space Grotesk',sans-serif;
-  font-size:var(--fs-sm); font-weight:700;
-  flex-shrink:0;
-  color:#fff;
-}
-.rev-name {
-  font-family:'Space Grotesk',sans-serif;
-  font-size:var(--fs-sm); font-weight:700;
-  color:var(--c-text-1); margin-bottom:2px;
-}
-.rev-role {
-  font-size:var(--fs-xs);
-  color:var(--c-text-3);
-  letter-spacing:0.06em;
-}
-
-/* ═══════════════ CONTACT ═══════════════ */
-#contact { background:var(--c-bg); }
-.contact-grid {
-  display:grid;
-  grid-template-columns:1fr 1.2fr;
-  gap:clamp(var(--sp-10),5vw,var(--sp-24));
-  align-items:start;
-}
-.contact-info-cards { display:flex; flex-direction:column; gap:var(--sp-2); margin-top:var(--sp-8); }
-.info-card {
-  display:flex; align-items:flex-start; gap:var(--sp-4);
-  padding:var(--sp-5) var(--sp-5);
-  background:var(--c-bg-1);
-  border:1px solid var(--c-border);
-  border-left:3px solid var(--c-gold);
-  transition:all var(--t-base);
-}
-.info-card:hover { background:var(--c-bg-2); border-left-color:var(--c-teal); }
-.info-icon-wrap {
-  width:40px; height:40px; flex-shrink:0;
-  display:flex; align-items:center; justify-content:center;
-  background:var(--c-gold-bg);
-  border:1px solid rgba(201,150,26,0.15);
-  border-radius:var(--r-sm);
-}
-.info-icon { width:18px; height:18px; color:var(--c-gold); }
-.info-label {
-  font-size:var(--fs-xs); font-weight:600;
-  letter-spacing:0.12em; text-transform:uppercase;
-  color:var(--c-gold); margin-bottom:var(--sp-1);
-}
-.info-value {
-  font-size:var(--fs-sm); line-height:1.6;
-  color:var(--c-text-1);
-}
-
-/* Form */
-.form-wrap {
-  background:var(--c-bg-1);
-  border:1px solid var(--c-border);
-  padding:clamp(var(--sp-8),4vw,var(--sp-10));
-}
-.form-title {
-  font-family:'Space Grotesk',sans-serif;
-  font-size:var(--fs-xl); font-weight:700;
-  color:var(--c-text-1);
-  margin-bottom:var(--sp-6);
-  letter-spacing:-0.01em;
-}
-.form-row { display:grid; grid-template-columns:1fr 1fr; gap:var(--sp-4); }
-.field { margin-bottom:var(--sp-5); }
-.field-label {
-  display:block;
-  font-size:var(--fs-xs); font-weight:600;
-  letter-spacing:0.1em; text-transform:uppercase;
-  color:var(--c-text-2);
-  margin-bottom:var(--sp-2);
-}
-.field-input,
-.field-select,
-.field-textarea {
-  width:100%;
-  padding:var(--sp-3) var(--sp-4);
-  background:var(--c-bg-3);
-  border:1px solid var(--c-border);
-  color:var(--c-text-1);
-  font-family:'Inter',sans-serif;
-  font-size:var(--fs-base);
-  min-height:44px;
-  border-radius:var(--r-sm);
-  transition:border-color var(--t-fast), box-shadow var(--t-fast);
-  outline:none;
-  -webkit-appearance:none;
-}
-.field-input::placeholder,
-.field-textarea::placeholder { color:var(--c-text-3); }
-.field-input:focus,
-.field-select:focus,
-.field-textarea:focus {
-  border-color:var(--c-gold);
-  box-shadow:0 0 0 3px rgba(201,150,26,0.12);
-}
-.field-select {
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235A5248' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;
-  background-position:right var(--sp-4) center;
-  padding-right:var(--sp-10);
-  cursor:pointer;
-}
-option { background:var(--c-bg-3); }
-.field-textarea { resize:vertical; min-height:120px; line-height:1.6; }
-.btn-form {
-  width:100%;
-  padding:var(--sp-4) var(--sp-6);
-  background:var(--c-gold);
-  color:var(--c-text-inv);
-  font-family:'Space Grotesk',sans-serif;
-  font-size:var(--fs-sm); font-weight:700;
-  letter-spacing:0.1em; text-transform:uppercase;
-  border:none; cursor:pointer;
-  border-radius:var(--r-sm);
-  min-height:52px;
-  transition:background var(--t-fast), transform var(--t-fast), box-shadow var(--t-fast);
-}
-.btn-form:hover { background:var(--c-gold-h); transform:translateY(-1px); box-shadow:0 6px 20px rgba(201,150,26,0.3); }
-.btn-form:active { transform:translateY(0); }
-.btn-form:focus-visible { outline:2px solid var(--c-gold); outline-offset:3px; }
-.btn-form.success {
-  background:var(--c-teal);
-  cursor:default; transform:none; box-shadow:none;
-}
-
-/* ═══════════════ CTA BANNER ═══════════════ */
-.cta-banner {
-  background:var(--c-bg-1);
-  border-block:1px solid var(--c-border);
-  padding-block:var(--sp-16);
-  text-align:center;
-  position:relative; overflow:hidden;
-}
-.cta-banner::before {
-  content:'';
-  position:absolute; inset:0;
-  background:radial-gradient(ellipse 60% 80% at 50% 50%, rgba(201,150,26,0.05) 0%, transparent 70%);
-  pointer-events:none;
-}
-.cta-tagline {
-  font-family:'Space Grotesk',sans-serif;
-  font-size:clamp(var(--fs-3xl),5vw,var(--fs-6xl));
-  font-weight:700; letter-spacing:-0.02em;
-  color:var(--c-text-1); margin-bottom:var(--sp-3);
-  position:relative; z-index:1;
-}
-.cta-tagline em { color:var(--c-gold); font-style:italic; font-weight:300; }
-.cta-sub {
-  font-size:var(--fs-lg); color:var(--c-text-2);
-  font-weight:300; margin-bottom:var(--sp-8);
-  position:relative; z-index:1;
-}
-.cta-actions { display:flex; justify-content:center; gap:var(--sp-4); flex-wrap:wrap; position:relative; z-index:1; }
-
-/* ═══════════════ FOOTER ═══════════════ */
-footer {
-  background:var(--c-bg-2);
-  border-top:1px solid var(--c-border);
-  padding-block:var(--sp-12);
-}
-.footer-grid {
-  display:grid;
-  grid-template-columns:2fr 1fr 1fr 1fr;
-  gap:var(--sp-10);
-  margin-bottom:var(--sp-10);
-}
-.footer-brand-row {
-  display:flex; align-items:center; gap:var(--sp-3);
-  margin-bottom:var(--sp-4);
-}
-.footer-logo { height:48px; }
-.footer-brand-name {
-  font-family:'Space Grotesk',sans-serif;
-  font-size:var(--fs-base); font-weight:700;
-  color:var(--c-gold); letter-spacing:0.04em;
-}
-.footer-tagline {
-  font-size:var(--fs-sm); line-height:1.75;
-  color:var(--c-text-3); max-width:32ch;
-  margin-bottom:var(--sp-5);
-}
-.footer-brand-dots { display:flex; gap:var(--sp-2); align-items:center; }
-.dot { width:8px; height:8px; border-radius:50%; }
-.footer-col-title {
-  font-family:'Space Grotesk',sans-serif;
-  font-size:var(--fs-xs); font-weight:700;
-  letter-spacing:0.14em; text-transform:uppercase;
-  color:var(--c-gold);
-  padding-bottom:var(--sp-3);
-  border-bottom:1px solid var(--c-border);
-  margin-bottom:var(--sp-4);
-}
-.footer-links { list-style:none; display:flex; flex-direction:column; gap:var(--sp-3); }
-.footer-links a {
-  font-size:var(--fs-sm); color:var(--c-text-3);
-  transition:color var(--t-fast);
-}
-.footer-links a:hover { color:var(--c-gold); }
-.footer-links a:focus-visible { outline:2px solid var(--c-gold); outline-offset:2px; border-radius:2px; }
-.footer-bottom {
-  padding-top:var(--sp-6);
-  border-top:1px solid var(--c-border);
-  display:flex; justify-content:space-between;
-  align-items:center; flex-wrap:wrap; gap:var(--sp-4);
-}
-.footer-copy { font-size:var(--fs-xs); color:var(--c-text-3); letter-spacing:0.06em; }
-
-/* ═══════════════ LIGHTBOX ═══════════════ */
-#lightbox {
-  position:fixed; inset:0; z-index:500;
-  background:rgba(4,4,4,0.97);
-  display:flex; align-items:center; justify-content:center;
-  opacity:0; pointer-events:none;
-  transition:opacity var(--t-base);
-}
-#lightbox.open { opacity:1; pointer-events:all; }
-.lb-inner {
-  max-width:90vw; max-height:90dvh;
-  position:relative;
+.p-card:hover::before{ transform:scaleX(1); }
+.p-card .p-index{ font-family:'Fraunces',serif; font-size:13px; font-weight:600; color:var(--ink-3); }
+.p-card .p-icon{
+  width:52px; height:52px; border-radius:14px; margin-block:16px 18px;
+  background:linear-gradient(135deg, var(--cream), var(--sand));
   display:flex; align-items:center; justify-content:center;
 }
-#lb-img {
-  max-width:100%; max-height:88dvh;
-  object-fit:contain;
-  display:block;
-  border:1px solid var(--c-border);
-  transform:scale(0.95); transition:transform var(--t-slow);
-}
-#lightbox.open #lb-img { transform:scale(1); }
-.lb-btn {
-  position:fixed;
-  width:52px; height:52px;
-  background:rgba(15,15,15,0.9);
-  border:1px solid var(--c-border-2);
-  display:flex; align-items:center; justify-content:center;
-  color:var(--c-text-1);
-  border-radius:var(--r-sm);
-  transition:all var(--t-fast);
-  cursor:pointer; font-size:18px;
-  min-width:44px; min-height:44px;
-}
-.lb-btn:hover { background:var(--c-gold); color:var(--c-text-inv); border-color:var(--c-gold); }
-.lb-btn:focus-visible { outline:2px solid var(--c-gold); outline-offset:3px; }
-#lb-close { inset-block-start:var(--sp-5); inset-inline-end:var(--sp-5); }
-#lb-prev { inset-block-start:50%; transform:translateY(-50%); inset-inline-start:var(--sp-5); }
-#lb-next { inset-block-start:50%; transform:translateY(-50%); inset-inline-end:var(--sp-5); }
-.lb-caption-bar {
-  position:fixed; inset-block-end:0; inset-inline:0;
-  background:rgba(8,8,8,0.85); backdrop-filter:blur(8px);
-  padding:var(--sp-3) var(--sp-6);
-  border-top:1px solid var(--c-border);
-  display:flex; justify-content:space-between; align-items:center;
-}
-#lb-caption-text {
-  font-family:'Space Grotesk',sans-serif;
-  font-size:var(--fs-sm); color:var(--c-text-2);
-  letter-spacing:0.04em;
-}
-#lb-counter {
-  font-family:'Space Grotesk',sans-serif;
-  font-size:var(--fs-xs); color:var(--c-text-3);
-  letter-spacing:0.1em;
-}
+.p-card h4{ font-size:19px; margin-bottom:8px; }
+.p-card p{ font-size:14px; color:var(--ink-2); line-height:1.55; }
+.p-card .p-use{ margin-top:16px; padding-top:14px; border-top:1px dashed var(--line-2); font-size:12px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:var(--gold); }
 
-/* ═══════════════ MODAL ═══════════════ */
-#product-modal {
-  position:fixed; inset:0; z-index:400;
-  background:rgba(4,4,4,0.88);
-  backdrop-filter:blur(8px);
-  display:flex; align-items:center; justify-content:center;
-  padding:var(--sp-6);
-  opacity:0; pointer-events:none;
-  transition:opacity var(--t-base);
-}
-#product-modal.open { opacity:1; pointer-events:all; }
-.modal-box {
-  background:var(--c-bg-2);
-  border:1px solid var(--c-border-2);
-  width:100%; max-width:520px; max-height:88dvh;
-  overflow-y:auto; padding:var(--sp-8);
-  position:relative;
-  transform:translateY(12px) scale(0.98);
-  transition:transform var(--t-slow);
-  border-radius:var(--r-sm);
-}
-#product-modal.open .modal-box { transform:translateY(0) scale(1); }
-.modal-close {
-  position:absolute; inset-block-start:var(--sp-4); inset-inline-end:var(--sp-4);
-  width:36px; height:36px;
-  display:flex; align-items:center; justify-content:center;
-  border:1px solid var(--c-border);
-  color:var(--c-text-2);
-  border-radius:var(--r-sm);
-  transition:all var(--t-fast);
-  font-size:16px;
-  min-width:44px; min-height:44px;
-}
-.modal-close:hover { border-color:var(--c-gold); color:var(--c-gold); }
-.modal-close:focus-visible { outline:2px solid var(--c-gold); outline-offset:3px; }
-.modal-tag {
-  font-size:var(--fs-xs); font-weight:600; letter-spacing:0.14em;
-  text-transform:uppercase; color:var(--c-teal-h);
-  margin-bottom:var(--sp-2);
-}
-.modal-title {
-  font-family:'Space Grotesk',sans-serif;
-  font-size:var(--fs-3xl); font-weight:700;
-  color:var(--c-text-1); margin-bottom:var(--sp-5);
-  letter-spacing:-0.02em;
-}
-.modal-rule {
-  height:2px;
-  background:linear-gradient(to right, var(--c-gold), var(--c-teal), var(--c-crim), transparent);
-  margin-bottom:var(--sp-5);
-}
-.modal-desc {
-  font-size:var(--fs-base); line-height:1.8;
-  color:var(--c-text-2); margin-bottom:var(--sp-6);
-}
-.modal-specs-title {
-  font-size:var(--fs-xs); font-weight:700;
-  letter-spacing:0.14em; text-transform:uppercase;
-  color:var(--c-gold); margin-bottom:var(--sp-3);
-}
-.spec-row {
-  display:flex; justify-content:space-between; align-items:center;
-  padding:var(--sp-3) 0;
-  border-bottom:1px solid var(--c-border);
-  font-size:var(--fs-sm);
-}
-.spec-key { color:var(--c-text-2); }
-.spec-val { color:var(--c-text-1); font-weight:500; }
-
-/* ═══════════════ BACK TO TOP ═══════════════ */
-#btt {
-  position:fixed;
-  inset-block-end:var(--sp-6); inset-inline-end:var(--sp-6);
-  z-index:200;
-  width:48px; height:48px;
-  background:var(--c-gold);
-  color:var(--c-text-inv);
-  display:flex; align-items:center; justify-content:center;
-  border-radius:var(--r-sm);
-  font-size:18px;
-  opacity:0; pointer-events:none;
-  transition:all var(--t-base);
-  cursor:pointer;
+/* ============================================================ WHY US */
+.why-wrap{ display:grid; grid-template-columns:0.95fr 1.05fr; gap:clamp(36px,6vw,90px); align-items:center; }
+@media (max-width:940px){ .why-wrap{ grid-template-columns:1fr; } }
+.why-media{ position:relative; border-radius:var(--r-lg); overflow:hidden; aspect-ratio:4/5; box-shadow:var(--shadow-lg); }
+.why-media img{ width:100%; height:100%; object-fit:cover; }
+.why-badge{
+  position:absolute; left:24px; bottom:24px; right:24px;
+  background:rgba(255,252,242,0.92); backdrop-filter:blur(10px);
+  border-radius:var(--r-md); padding:18px 20px; display:flex; align-items:center; gap:16px;
   box-shadow:var(--shadow-md);
 }
-#btt.visible { opacity:1; pointer-events:all; }
-#btt:hover { background:var(--c-gold-h); transform:translateY(-2px); }
-#btt:focus-visible { outline:2px solid var(--c-gold); outline-offset:4px; }
+.why-badge .num{ font-family:'Fraunces',serif; font-size:30px; font-weight:600; color:var(--gold); line-height:1; }
+.why-badge .txt{ font-size:13px; font-weight:600; color:var(--ink-2); line-height:1.35; }
+.why-list{ display:flex; flex-direction:column; gap:0; }
+.why-item{ display:flex; gap:20px; padding-block:24px; border-bottom:1px solid var(--line); }
+.why-item:first-child{ padding-top:0; }
+.why-num{ font-family:'Fraunces',serif; font-size:15px; font-weight:600; color:var(--gold); flex-shrink:0; width:34px; }
+.why-item h4{ font-size:19px; margin-bottom:8px; }
+.why-item p{ font-size:14.5px; color:var(--ink-2); max-width:52ch; }
 
-/* ═══════════════ SCROLL REVEAL ═══════════════ */
-.reveal {
-  opacity:0;
-  transform:translateY(24px);
-  transition:opacity 0.7s ease-out, transform 0.7s ease-out;
-}
-.reveal.in { opacity:1; transform:translateY(0); }
-.reveal-d1 { transition-delay:0.08s; }
-.reveal-d2 { transition-delay:0.16s; }
-.reveal-d3 { transition-delay:0.24s; }
-.reveal-d4 { transition-delay:0.32s; }
-@media (prefers-reduced-motion:reduce) {
-  .reveal, *, *::before, *::after {
-    animation:none !important; transition:none !important;
-  }
-}
+/* ============================================================ PROCESS */
+.process-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:0; position:relative; }
+@media (max-width:940px){ .process-grid{ grid-template-columns:1fr 1fr; gap:32px 20px; } }
+@media (max-width:560px){ .process-grid{ grid-template-columns:1fr; } }
+.process-step{ position:relative; padding-inline:22px; }
+.process-step:first-child{ padding-left:0; }
+.process-num{ font-family:'Fraunces',serif; font-size:52px; font-weight:600; color:rgba(253,251,212,0.28); line-height:1; margin-bottom:14px; }
+.process-step h4{ font-size:19px; margin-bottom:10px; }
+.process-step p{ font-size:14px; color:rgba(253,251,212,0.68); }
+.process-connector{ position:absolute; top:32px; left:0; right:-22px; height:1px; background:rgba(253,251,212,0.2); }
+@media (max-width:940px){ .process-connector{ display:none; } }
 
-/* ═══════════════ ANIMATIONS ═══════════════ */
-@keyframes fadeUp {
-  to { opacity:1; transform:translateY(0); }
+/* ============================================================ GALLERY */
+.gallery-grid{
+  display:grid; grid-template-columns:repeat(6,1fr); grid-auto-rows:130px; gap:12px;
 }
-@keyframes fadeIn {
-  to { opacity:1; }
-}
-@keyframes bounce {
-  0%,100%{ transform:translateX(-50%) translateY(0); }
-  50%{ transform:translateX(-50%) translateY(6px); }
-}
-@keyframes marquee {
-  from { transform:translateX(0); }
-  to { transform:translateX(-50%); }
-}
-
-/* ═══════════════ RESPONSIVE ═══════════════ */
-@media (max-width:1024px) {
-  .nav-links, .nav-links + .btn-primary { display:none; }
-  .nav-menu-btn { display:flex; }
-  #mobile-nav { display:block; }
-
-  .footer-grid { grid-template-columns:1fr 1fr; }
-  .counters-grid { grid-template-columns:repeat(2,1fr); }
-  .counter-cell:nth-child(2) { border-right:none; }
-  .counter-cell:nth-child(3) { border-top:1px solid rgba(255,255,255,0.12); }
-  .why-grid { grid-template-columns:1fr 1fr; }
-  .reviews-panel.active { grid-template-columns:1fr 1fr; }
-  .contact-grid { grid-template-columns:1fr; }
+.gallery-grid a{ display:block; overflow:hidden; border-radius:var(--r-sm); position:relative; }
+.gallery-grid img{ width:100%; height:100%; object-fit:cover; transition:transform var(--t-slow); }
+.gallery-grid a:hover img{ transform:scale(1.08); }
+.bg-cream .p-card, .bg-cream .testi-card{ background:var(--sand); }
+.gallery-grid a::after{ content:''; position:absolute; inset:0; background:linear-gradient(180deg, transparent 55%, rgba(84,83,51,0.55) 100%); opacity:0; transition:opacity var(--t-fast); }
+.gallery-grid a:hover::after{ opacity:1; }
+.g1{ grid-column:span 3; grid-row:span 3; }
+.g2{ grid-column:span 3; grid-row:span 2; }
+.g3{ grid-column:span 3; grid-row:span 2; }
+.g4{ grid-column:span 2; grid-row:span 2; }
+.g5{ grid-column:span 2; grid-row:span 2; }
+.g6{ grid-column:span 2; grid-row:span 2; }
+@media (max-width:900px){
+  .gallery-grid{ grid-template-columns:repeat(2,1fr); grid-auto-rows:150px; }
+  .g1,.g2,.g3,.g4,.g5,.g6{ grid-column:span 1; grid-row:span 2; }
 }
 
-@media (max-width:768px) {
-  .about-grid { grid-template-columns:1fr; }
-  .about-img-secondary { display:none; }
-  .about-pillars { grid-template-columns:1fr; }
-  .products-grid { grid-template-columns:1fr; }
-  .gallery-mosaic {
-    grid-template-columns:1fr 1fr;
-    grid-auto-rows:200px;
-  }
-  .g-item:nth-child(1){ grid-column:span 2; grid-row:span 1; }
-  .g-item:nth-child(2){ grid-column:span 1; }
-  .g-item:nth-child(3){ grid-column:span 1; }
-  .g-item:nth-child(4){ grid-column:span 2; }
-  .g-item:nth-child(5){ grid-column:span 1; }
-  .g-item:nth-child(6){ grid-column:span 1; }
-  .g-item:nth-child(7){ grid-column:span 2; }
-  .why-grid { grid-template-columns:1fr; }
-  .reviews-panel.active { grid-template-columns:1fr; }
-  .hero-stats-inner { grid-template-columns:repeat(2,1fr); }
-  .hero-stat:nth-child(2) { border-right:none; }
-  .hero-stat:nth-child(3) { border-top:1px solid var(--c-border); }
-  .footer-grid { grid-template-columns:1fr; }
-  .form-row { grid-template-columns:1fr; }
+/* ============================================================ ABOUT / LEGACY */
+.legacy-wrap{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(36px,6vw,90px); align-items:center; }
+@media (max-width:940px){ .legacy-wrap{ grid-template-columns:1fr; } }
+.legacy-media{ position:relative; border-radius:var(--r-lg); overflow:hidden; box-shadow:var(--shadow-lg); aspect-ratio:5/4; }
+.legacy-media img{ width:100%; height:100%; object-fit:cover; }
+.legacy-quote{ font-family:'Fraunces',serif; font-size:clamp(20px,2.4vw,27px); font-weight:400; font-style:italic; line-height:1.4; color:var(--ink); margin-block:26px; }
+.legacy-sign{ font-size:13px; font-weight:700; letter-spacing:0.04em; color:var(--ink-3); text-transform:uppercase; }
+
+/* ============================================================ FLEET / TRUST STRIP */
+.trust-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+@media (max-width:860px){ .trust-grid{ grid-template-columns:repeat(2,1fr); } }
+.trust-card{ background:var(--surface); border:1px solid var(--line); border-radius:var(--r-md); padding:28px 24px; }
+.trust-card .icon-wrap{ width:44px; height:44px; border-radius:12px; background:linear-gradient(135deg,var(--cream),var(--sand)); display:flex; align-items:center; justify-content:center; margin-bottom:18px; }
+.trust-card h4{ font-size:17px; margin-bottom:8px; }
+.trust-card p{ font-size:13.5px; color:var(--ink-2); }
+
+/* ============================================================ TESTIMONIALS */
+.testi-track{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+@media (max-width:940px){ .testi-track{ grid-template-columns:1fr; } }
+.testi-card{ background:var(--surface); border-radius:var(--r-md); padding:32px 28px; box-shadow:var(--shadow-sm); border:1px solid var(--line); }
+.testi-stars{ color:var(--gold); font-size:15px; letter-spacing:3px; margin-bottom:18px; }
+.testi-card p{ font-family:'Fraunces',serif; font-size:18px; font-weight:400; font-style:italic; line-height:1.5; color:var(--ink); margin-bottom:20px; }
+.testi-role{ font-size:12.5px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:var(--ink-3); }
+
+/* ============================================================ CONTACT / CTA */
+#contact{ position:relative; overflow:hidden; }
+.contact-wrap{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:clamp(36px,6vw,90px); }
+@media (max-width:940px){ .contact-wrap{ grid-template-columns:1fr; } }
+.contact-cards{ display:flex; flex-direction:column; gap:16px; }
+.contact-card{
+  display:flex; align-items:center; gap:18px; background:rgba(253,251,212,0.08);
+  border:1px solid rgba(253,251,212,0.22); border-radius:var(--r-md); padding:22px 24px;
+  transition:background var(--t-fast), transform var(--t-fast);
+}
+.contact-card:hover{ background:rgba(253,251,212,0.14); transform:translateX(4px); }
+.contact-card .ic{ width:46px; height:46px; border-radius:12px; background:linear-gradient(135deg,var(--gold),var(--orange)); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.contact-card .label{ font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:rgba(253,251,212,0.6); margin-bottom:3px; }
+.contact-card .val{ font-size:16px; font-weight:600; color:var(--cream); }
+
+.form-panel{ background:var(--sand); border-radius:var(--r-lg); padding:clamp(28px,4vw,44px); color:var(--ink); box-shadow:var(--shadow-lg); }
+.form-panel h3{ font-size:24px; margin-bottom:8px; }
+.form-panel .sub{ color:var(--ink-2); margin-bottom:26px; font-size:14.5px; }
+.f-row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px; }
+@media (max-width:520px){ .f-row{ grid-template-columns:1fr; } }
+.f-field{ display:flex; flex-direction:column; gap:6px; margin-bottom:14px; }
+.f-field label{ font-size:12px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:var(--ink-2); }
+.f-field input, .f-field select, .f-field textarea{
+  border:1.5px solid var(--line-2); background:var(--cream); border-radius:var(--r-sm);
+  padding:13px 16px; font-family:'Manrope',sans-serif; font-size:14.5px; color:var(--ink);
+  transition:border-color var(--t-fast), box-shadow var(--t-fast);
+}
+.f-field input:focus, .f-field select:focus, .f-field textarea:focus{ outline:none; border-color:var(--gold); box-shadow:0 0 0 4px rgba(135,134,114,0.16); }
+.f-field textarea{ resize:vertical; min-height:90px; }
+.form-panel .btn-primary{ width:100%; margin-top:6px; }
+
+/* ============================================================ FOOTER */
+footer{ background:#2E2009; color:rgba(253,251,212,0.6); padding-block:64px 32px; }
+.foot-top{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; padding-bottom:48px; border-bottom:1px solid rgba(253,251,212,0.1); }
+@media (max-width:860px){ .foot-top{ grid-template-columns:1fr 1fr; } }
+@media (max-width:520px){ .foot-top{ grid-template-columns:1fr; } }
+.foot-brand{ display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+.foot-logo{ height:36px; }
+.foot-brand-name{ font-family:'Fraunces',serif; font-size:18px; font-weight:600; color:var(--cream); }
+footer p{ font-size:13.5px; line-height:1.7; max-width:34ch; }
+.foot-col h5{ font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--cream); margin-bottom:18px; }
+.foot-col ul{ display:flex; flex-direction:column; gap:11px; }
+.foot-col a{ font-size:13.5px; transition:color var(--t-fast); }
+.foot-col a:hover{ color:var(--cream); }
+.foot-bottom{ display:flex; justify-content:space-between; align-items:center; padding-top:28px; flex-wrap:wrap; gap:14px; font-size:12.5px; }
+
+.wa-float{
+  position:fixed; right:24px; bottom:24px; z-index:150;
+  width:58px; height:58px; border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),var(--orange));
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:var(--shadow-gold);
+  transition:transform var(--t-fast);
+}
+.wa-float:hover{ transform:scale(1.08); }
+.wa-float:active{ transform:scale(0.94); }
+
+@media (max-width:640px){
+  .product-grid{ gap:14px; }
+  .hero-actions{ flex-direction:column; align-items:stretch; }
+  .hero-actions .btn{ width:100%; }
 }
 </style>
 </head>
 <body>
 
-<a href="#main" class="skip-link">Skip to main content</a>
-
-<!-- LIGHTBOX -->
-<div id="lightbox" role="dialog" aria-label="Image viewer" aria-modal="true">
-  <button class="lb-btn" id="lb-close" aria-label="Close lightbox">✕</button>
-  <button class="lb-btn" id="lb-prev" aria-label="Previous image">‹</button>
-  <div class="lb-inner">
-    <img id="lb-img" src="" alt="">
-  </div>
-  <button class="lb-btn" id="lb-next" aria-label="Next image">›</button>
-  <div class="lb-caption-bar">
-    <span id="lb-caption-text"></span>
-    <span id="lb-counter"></span>
-  </div>
-</div>
-
-<!-- PRODUCT MODAL -->
-<div id="product-modal" role="dialog" aria-label="Product details" aria-modal="true">
-  <div class="modal-box">
-    <button class="modal-close" id="modal-close-btn" aria-label="Close">✕</button>
-    <div class="modal-tag">Product Details</div>
-    <h2 class="modal-title" id="modal-title"></h2>
-    <div class="modal-rule"></div>
-    <p class="modal-desc" id="modal-desc"></p>
-    <div class="modal-specs-title">Specifications</div>
-    <div id="modal-specs"></div>
-  </div>
-</div>
-
-<!-- BACK TO TOP -->
-<button id="btt" aria-label="Back to top">↑</button>
-
-<!-- ── NAV ── -->
-<header>
-  <nav id="nav" role="navigation" aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="#" class="nav-brand" aria-label="Siripathi Metal Crushers home">
-        <img class="nav-logo" id="nav-logo" src="" alt="Siripathi Metal Crushers logo">
-        <div class="nav-brand-text">
-          <span class="nav-brand-name">Siripathi</span>
-          <span class="nav-brand-sub">Metal Crushers</span>
-        </div>
-      </a>
-      <ul class="nav-links" role="list">
-        <li><a href="#about">About</a></li>
-        <li><a href="#products">Products</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#reviews">Reviews</a></li>
-      </ul>
-      <a href="#contact" class="btn-primary nav-links" style="display:inline-flex;">Get a Quote</a>
-      <button class="nav-menu-btn" id="menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav">
-        <div class="hamburger" id="hamburger">
-          <span></span><span></span><span></span>
-        </div>
-      </button>
-    </div>
-  </nav>
-
-  <!-- Mobile nav -->
-  <div id="mobile-nav" aria-hidden="true">
-    <ul class="mobile-nav-links" role="list">
-      <li><a href="#about">About</a></li>
+<!-- ============================================================ NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-brand">
+      <img src="Siripathi-logo.png" alt="Siripathi Metal Crushers logo" class="nav-logo">
+      <div class="nav-brand-text">
+        <span class="nav-brand-name">Siripathi</span>
+        <span class="nav-brand-sub">Metal Crushers</span>
+      </div>
+    </a>
+    <ul class="nav-links">
       <li><a href="#products">Products</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#process">Process</a></li>
       <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#reviews">Reviews</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <div class="mobile-nav-cta">
-      <a href="#contact" class="btn-primary" style="width:100%;justify-content:center;">Get a Quote</a>
+    <div class="nav-cta">
+      <div class="nav-tel">
+        <span class="nav-tel-label">Call for a quote</span>
+        <span class="nav-tel-num">077 462 8141</span>
+      </div>
+      <a href="#contact" class="btn btn-primary btn-sm">Get a Quote</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span></button>
     </div>
   </div>
-</header>
+</nav>
 
-<!-- ── HERO ── -->
-<main id="main">
-<section id="hero" aria-label="Hero">
-  <div class="hero-bg-image" id="hero-bg" role="img" aria-label="Quarry site with stone stockpile"></div>
-  <div class="hero-vignette" aria-hidden="true"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#products">Products</a>
+  <a href="#why">Why Us</a>
+  <a href="#process">Process</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#contact">Contact</a>
+</div>
 
-  <div class="hero-content container">
-    <div class="hero-eyebrow">
-      <div class="hero-eyebrow-line" aria-hidden="true"></div>
-      <span class="label-sm">Est. 1990 — Sri Lanka's Trusted Quarry</span>
-    </div>
-    <h1 class="hero-headline">
-      Built on
-      <span class="hero-headline-gold">Solid Rock.</span>
-    </h1>
-    <p class="hero-desc">Premium crushed Metal and aggregate supply trusted by 5,000+ contractors, developers, and builders across Sri Lanka for over 30 years.</p>
+<!-- ============================================================ HERO -->
+<section id="hero">
+  <div class="hero-media">
+    <img src="Image 5.jpeg" alt="Hydraulic rock breaker excavator working a granite quarry face">
+  </div>
+  <div class="container hero-content">
+    <div class="hero-eyebrow"><span class="dot"></span> Piliyandala · Est. Three Decades in Rock</div>
+    <h1 class="h-display hero-title">Built on <em>solid</em><br>rock, since day one.</h1>
+    <p class="hero-sub">Siripathi Metal Crushers is a family-run quarry supplying premium crushed aggregate — direct from our own crushing plant to your site — trusted by more than 10,000 clients across Sri Lanka.</p>
     <div class="hero-actions">
-      <a href="#products" class="btn-primary">View Products</a>
-      <a href="#contact" class="btn-outline">Get a Free Quote</a>
+      <a href="#contact" class="btn btn-primary">Request a Quote</a>
+      <a href="#products" class="btn btn-ghost" style="color:var(--cream);border-color:rgba(253,251,212,0.4);">View Our Products</a>
+    </div>
+    <div class="hero-stats reveal-stagger" id="heroStats">
+      <div><div class="hero-stat-num" data-count="30">0</div><div class="hero-stat-label">Years in Operation</div></div>
+      <div><div class="hero-stat-num" data-count="10000">0</div><div class="hero-stat-label">Clients Served</div></div>
+      <div><div class="hero-stat-num" data-count="8">0</div><div class="hero-stat-label">Aggregate Products</div></div>
+      <div><div class="hero-stat-num">Own</div><div class="hero-stat-label">Delivery Fleet</div></div>
     </div>
   </div>
-
-  <div class="hero-stats-bar" aria-label="Key statistics">
-    <div class="hero-stats-inner">
-      <div class="hero-stat">
-        <div class="hero-stat-val"><span class="count-num" data-target="30">0</span>+</div>
-        <div class="hero-stat-label">Years in Operation</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-val"><span class="count-num" data-target="5000">0</span>+</div>
-        <div class="hero-stat-label">Satisfied Clients</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-val">7</div>
-        <div class="hero-stat-label">Product Grades</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-val">100%</div>
-        <div class="hero-stat-label">Quality Guaranteed</div>
-      </div>
-    </div>
-  </div>
+  <div class="scroll-cue"><span>Scroll</span><span class="line"></span></div>
 </section>
 
-<!-- MARQUEE -->
-<div class="marquee-wrap" aria-hidden="true">
-  <div class="marquee-track">
-    <div class="marquee-item">6×4 Rubble <span class="marquee-sep">◆</span></div>
-    <div class="marquee-item">Chips <span class="marquee-sep">◆</span></div>
-    <div class="marquee-item">¾ Metal <span class="marquee-sep">◆</span></div>
-    <div class="marquee-item">¼ Metal <span class="marquee-sep">◆</span></div>
-    <div class="marquee-item">Dust <span class="marquee-sep">◆</span></div>
-    <div class="marquee-item">Inch Metal <span class="marquee-sep">◆</span></div>
-    <div class="marquee-item">ABC Aggregate <span class="marquee-sep">◆</span></div>
-    <div class="marquee-item">Mixture <span class="marquee-sep">◆</span></div>
-    <div class="marquee-item">Trusted Since 1990 <span class="marquee-sep">◆</span></div>
-    <div class="marquee-item">6×4 Rubble <span class="marquee-sep">◆</span></div>
-    <div class="marquee-item">Chips <span class="marquee-sep">◆</span></div>
-    <div class="marquee-item">¾ Metal <span class="marquee-sep">◆</span></div>
-    <div class="marquee-item">¼ Metal <span class="marquee-sep">◆</span></div>
-    <div class="marquee-item">Dust <span class="marquee-sep">◆</span></div>
-    <div class="marquee-item">Inch Metal <span class="marquee-sep">◆</span></div>
-    <div class="marquee-item">ABC Aggregate <span class="marquee-sep">◆</span></div>
-    <div class="marquee-item">Mixture <span class="marquee-sep">◆</span></div>
-    <div class="marquee-item">Trusted Since 1990 <span class="marquee-sep">◆</span></div>
+<!-- ============================================================ MARQUEE -->
+<div class="strip">
+  <div class="strip-track">
+    <span>6/4 Rubble <span>3/4 Metal</span> <span>1/4 Metal</span> <span>Dust</span> <span>Chips</span> <span>ABC</span> <span>Inch Metal</span> <span>Mixture</span></span>
+    <span>6/4 Rubble <span>3/4 Metal</span> <span>1/4 Metal</span> <span>Dust</span> <span>Chips</span> <span>ABC</span> <span>Inch Metal</span> <span>Mixture</span></span>
   </div>
 </div>
 
-<!-- ABOUT -->
-<section id="about" class="section">
+<!-- ============================================================ PRODUCTS -->
+<section id="products" class="bg-cream">
   <div class="container">
-    <div class="about-grid">
-      <div class="about-media reveal">
-        <img class="about-img-main"
-        src="Image 2.jpeg"
-          alt="Siripathi Metal Crushers branded delivery truck"
-          loading="lazy" width="600" height="750">
-        <img class="about-img-secondary"
-        src="Image 3.jpeg"
-          alt="Wheel loader loading aggregate into delivery truck"
-          loading="lazy" width="330" height="248">
-        <div class="about-badge">
-          <div class="about-badge-num">30+</div>
-          <div class="about-badge-label">Years of<br>Excellence</div>
+    <div class="section-head reveal">
+      <span class="eyebrow">Our Range</span>
+      <h2 class="h-section">Eight products. One quarry. Every specification you need.</h2>
+      <p class="sub">Every product is crushed and graded on-site at our own Piliyandala plant, so what you order is exactly what's delivered — no re-sold or blended stock.</p>
+    </div>
+
+    <div class="product-grid reveal-stagger" id="productGrid">
+      <div class="p-card">
+        <span class="p-index">01</span>
+        <div class="p-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 18L9 8L13 14L16 9L20 18" stroke="#545333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
+        <h4>6/4 Rubble</h4>
+        <p>Large graded rubble for foundations, hardcore filling, and heavy-duty base layers on major construction sites.</p>
+        <div class="p-use">Foundations · Filling</div>
       </div>
-      <div class="about-text">
-        <div class="section-eyebrow reveal">
-          <div class="eyebrow-dot" aria-hidden="true"></div>
-          <span class="label-sm">Our Story</span>
+      <div class="p-card">
+        <span class="p-index">02</span>
+        <div class="p-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="7" height="7" rx="1.5" stroke="#545333" stroke-width="2"/><rect x="13" y="4" width="7" height="7" rx="1.5" stroke="#545333" stroke-width="2"/><rect x="4" y="13" width="7" height="7" rx="1.5" stroke="#545333" stroke-width="2"/><rect x="13" y="13" width="7" height="7" rx="1.5" stroke="#545333" stroke-width="2"/></svg>
         </div>
-        <h2 class="section-title reveal reveal-d1">Strength Built<br>From the <em>Ground Up</em></h2>
-        <p class="about-copy reveal reveal-d2">Founded over 30 years ago, Siripathi Metal Crushers has grown into one of Sri Lanka's most trusted aggregate suppliers — serving thousands of construction projects with consistency, precision, and care.</p>
-        <p class="about-copy reveal reveal-d3">We control every stage of production in-house: raw rock extraction, precision crushing, grading, and direct fleet delivery. No middlemen. No compromises.</p>
-        <div class="about-pillars">
-          <div class="pillar-card reveal reveal-d1">
-            <svg class="pillar-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-              <rect x="2" y="2" width="32" height="32" rx="2" stroke="#C9961A" stroke-width="1.5"/>
-              <path d="M10 18l5 5 11-11" stroke="#C9961A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <div class="pillar-title">Grade Precision</div>
-            <div class="pillar-desc">Every batch calibrated to exact specifications. What you order is what arrives.</div>
-          </div>
-          <div class="pillar-card reveal reveal-d2">
-            <svg class="pillar-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-              <circle cx="18" cy="18" r="14" stroke="#C9961A" stroke-width="1.5"/>
-              <path d="M18 10v8l5 3" stroke="#C9961A" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-            <div class="pillar-title">On-Time Delivery</div>
-            <div class="pillar-desc">Our own fleet means we control timelines. We arrive when we commit to arriving.</div>
-          </div>
-          <div class="pillar-card reveal reveal-d3">
-            <svg class="pillar-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-              <path d="M6 30L18 6l12 24" stroke="#C9961A" stroke-width="1.5" stroke-linecap="round"/>
-              <path d="M10 22h16" stroke="#C9961A" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-            <div class="pillar-title">Fair Pricing</div>
-            <div class="pillar-desc">Direct from quarry to site — no markup from middlemen. You pay a fair price.</div>
-          </div>
-          <div class="pillar-card reveal reveal-d4">
-            <svg class="pillar-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-              <path d="M18 4l3.5 7 7.5 1-5.5 5.5 1.5 7.5L18 21.5l-7 4.5 1.5-7.5L7 13l7.5-1z" stroke="#C9961A" stroke-width="1.5" stroke-linejoin="round"/>
-            </svg>
-            <div class="pillar-title">30-Year Trust</div>
-            <div class="pillar-desc">5,000+ clients choose us because we never let them down — year after year.</div>
-          </div>
+        <h4>3/4 Metal</h4>
+        <p>The standard structural grade — reinforced concrete slabs, columns, beams, and general RCC works.</p>
+        <div class="p-use">RCC · Slabs · Columns</div>
+      </div>
+      <div class="p-card">
+        <span class="p-index">03</span>
+        <div class="p-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="#545333" stroke-width="2"/><circle cx="5" cy="6" r="1.6" fill="#545333"/><circle cx="19" cy="6" r="1.6" fill="#545333"/><circle cx="5" cy="18" r="1.6" fill="#545333"/><circle cx="19" cy="18" r="1.6" fill="#545333"/></svg>
+        </div>
+        <h4>1/4 Metal</h4>
+        <p>Finer aggregate for precast units, thin slabs, plastering backing, and finishing-grade concrete work.</p>
+        <div class="p-use">Precast · Fine Finish</div>
+      </div>
+      <div class="p-card">
+        <span class="p-index">04</span>
+        <div class="p-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 20C4 12 7 6 12 3C17 6 20 12 20 20" stroke="#545333" stroke-width="2" stroke-linecap="round"/><path d="M8 20C8 15 10 11 12 9" stroke="#545333" stroke-width="1.6" stroke-linecap="round" opacity="0.5"/></svg>
+        </div>
+        <h4>Dust</h4>
+        <p>Fine crusher dust for plastering, block-work jointing, and as a workable sand substitute in mixes.</p>
+        <div class="p-use">Plastering · Block Work</div>
+      </div>
+      <div class="p-card">
+        <span class="p-index">05</span>
+        <div class="p-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 3L15 9L21 10L16.5 14L18 20L12 17L6 20L7.5 14L3 10L9 9L12 3Z" stroke="#545333" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        </div>
+        <h4>Chips</h4>
+        <p>Uniform decorative and structural chips for exposed aggregate finishes, gardens, and precast detailing.</p>
+        <div class="p-use">Exposed Finish · Precast</div>
+      </div>
+      <div class="p-card">
+        <span class="p-index">06</span>
+        <div class="p-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 17L9 17L11 13L14 20L16 15L21 15" stroke="#545333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h4>ABC Aggregate</h4>
+        <p>All-in-Ballast-Crusher-run for road sub-base, compacted fill, and pavement construction.</p>
+        <div class="p-use">Road Base · Compaction</div>
+      </div>
+      <div class="p-card">
+        <span class="p-index">07</span>
+        <div class="p-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="#545333" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="#545333"/></svg>
+        </div>
+        <h4>Inch Metal</h4>
+        <p>Versatile 25mm crushed metal — drainage layers, retaining-wall back-fill, and gabion fill.</p>
+        <div class="p-use">Drainage · Back-fill</div>
+      </div>
+      <div class="p-card">
+        <span class="p-index">08</span>
+        <div class="p-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 8H20M4 12H20M4 16H20" stroke="#545333" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h4>Mixture</h4>
+        <p>Pre-blended chips and dust for concrete mixes and plastering — one delivery, ready to use.</p>
+        <div class="p-use">Ready-Mix Blend</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ WHY US -->
+<section id="why">
+  <div class="container why-wrap">
+    <div class="why-media reveal">
+      <img src="Image 2.jpeg" alt="Wheel loader loading crushed aggregate onto a delivery truck">
+      <div class="why-badge">
+        <div class="num">10K+</div>
+        <div class="txt">Contractors, developers &amp; homeowners supplied across Sri Lanka</div>
+      </div>
+    </div>
+    <div>
+      <div class="section-head" style="margin-bottom:34px;">
+        <span class="eyebrow">Why Siripathi</span>
+        <h2 class="h-section">Quarry-direct, so nothing is lost to middlemen.</h2>
+      </div>
+      <div class="why-list reveal-stagger">
+        <div class="why-item">
+          <span class="why-num">01</span>
+          <div><h4>One quarry, full control</h4><p>We extract, crush, grade and deliver every product ourselves — consistent specification on every single load.</p></div>
+        </div>
+        <div class="why-item">
+          <span class="why-num">02</span>
+          <div><h4>Our own delivery fleet</h4><p>No third-party transport delays. Our trucks run from the crushing plant straight to your site, on schedule.</p></div>
+        </div>
+        <div class="why-item">
+          <span class="why-num">03</span>
+          <div><h4>Three decades of trust</h4><p>A family business built over thirty years of honest weight, honest grading, and honest pricing.</p></div>
+        </div>
+        <div class="why-item">
+          <span class="why-num">04</span>
+          <div><h4>Best prices in the market</h4><p>Direct-from-quarry pricing with no middlemen markup — the same premium aggregate, at a fairer rate.</p></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PRODUCTS -->
-<section id="products" class="section">
+<!-- ============================================================ PROCESS -->
+<section id="process" class="bg-ink">
   <div class="container">
-    <div class="section-header-flex">
-      <div>
-        <div class="section-eyebrow reveal">
-          <div class="eyebrow-dot" aria-hidden="true"></div>
-          <span class="label-sm">What We Supply</span>
-        </div>
-        <h2 class="section-title reveal reveal-d1">Our <em>Products</em></h2>
-      </div>
-      <p class="reveal reveal-d2" style="font-size:var(--fs-sm);color:var(--c-text-3);max-width:28ch;text-align:right;line-height:1.65;">Click any product to view full specifications.</p>
+    <div class="section-head center reveal">
+      <span class="eyebrow">How It Works</span>
+      <h2 class="h-section">From rock face to your site, in four steps.</h2>
     </div>
-    <div class="products-grid" id="products-grid" role="list"></div>
-  </div>
-</section>
-
-<!-- COUNTERS -->
-<section id="counters" aria-label="Company statistics">
-  <div class="container">
-    <div class="counters-grid">
-      <div class="counter-cell">
-        <div class="counter-val"><span class="count-num" data-target="30">0</span><span class="counter-suffix">+</span></div>
-        <div class="counter-label">Years Operating</div>
+    <div class="process-grid reveal-stagger">
+      <div class="process-step">
+        <div class="process-connector"></div>
+        <div class="process-num">01</div>
+        <h4>Extract</h4>
+        <p>Granite is blasted and broken at our own quarry face using hydraulic breakers and excavators.</p>
       </div>
-      <div class="counter-cell">
-        <div class="counter-val"><span class="count-num" data-target="5000">0</span><span class="counter-suffix">+</span></div>
-        <div class="counter-label">Clients Served</div>
+      <div class="process-step">
+        <div class="process-connector"></div>
+        <div class="process-num">02</div>
+        <h4>Crush</h4>
+        <p>Raw rock is fed through our crushing plant and reduced to the required particle size.</p>
       </div>
-      <div class="counter-cell">
-        <div class="counter-val">7</div>
-        <div class="counter-label">Product Grades</div>
+      <div class="process-step">
+        <div class="process-connector"></div>
+        <div class="process-num">03</div>
+        <h4>Grade</h4>
+        <p>Screened and sorted into our eight product grades — from 6/4 Rubble down to fine Dust.</p>
       </div>
-      <div class="counter-cell">
-        <div class="counter-val">100<span class="counter-suffix">%</span></div>
-        <div class="counter-label">Quality Guaranteed</div>
+      <div class="process-step">
+        <div class="process-num">04</div>
+        <h4>Deliver</h4>
+        <p>Loaded straight onto our own fleet and driven directly to your construction site.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- GALLERY -->
-<section id="gallery" class="section">
+<!-- ============================================================ GALLERY -->
+<section id="gallery" class="bg-cream">
   <div class="container">
-    <div class="section-header-flex">
-      <div>
-        <div class="section-eyebrow reveal">
-          <div class="eyebrow-dot" aria-hidden="true"></div>
-          <span class="label-sm label-teal">Facility &amp; Fleet</span>
-        </div>
-        <h2 class="section-title reveal reveal-d1">See Us <em>in Action</em></h2>
+    <div class="section-split reveal" style="margin-bottom:44px;">
+      <div class="section-head" style="margin-bottom:0;">
+        <span class="eyebrow">On Site</span>
+        <h2 class="h-section">The quarry, the plant, the fleet.</h2>
       </div>
+      <p class="sub" style="max-width:36ch;">A look at daily operations — from the rock face to the crushing shed to the road.</p>
     </div>
-    <div class="gallery-mosaic" id="gallery-mosaic" role="list">
-      <div class="g-item reveal" role="listitem" tabindex="0" onclick="openLb(0)" onkeydown="if(event.key==='Enter')openLb(0)" aria-label="View quarry stockpile image">
-        <img class="g-img", src="Image 5.jpeg">
-        <div class="g-overlay" aria-hidden="true">
-          <div class="g-caption">Quarry Stockpile</div>
-          <div class="g-sub">Fresh crushed granite rubble ready for dispatch</div>
-        </div>
-        <div class="g-expand" aria-hidden="true">⤢</div>
-      </div>
-      <div class="g-item reveal reveal-d1" role="listitem" tabindex="0" onclick="openLb(1)" onkeydown="if(event.key==='Enter')openLb(1)" aria-label="View wheel loaders image">
-        <img class="g-img", src="Image 8.png">
-        <div class="g-overlay" aria-hidden="true">
-          <div class="g-caption">Equipment Fleet</div>
-          <div class="g-sub">Kobelco LK300A wheel loaders</div>
-        </div>
-        <div class="g-expand" aria-hidden="true">⤢</div>
-      </div>
-      <div class="g-item reveal reveal-d2" role="listitem" tabindex="0" onclick="openLb(2)" onkeydown="if(event.key==='Enter')openLb(2)" aria-label="View crusher plant image">
-        <img class="g-img", src="Image 2.jpeg">
-        <div class="g-overlay" aria-hidden="true">
-          <div class="g-caption">Loading Operations</div>
-          <div class="g-sub">Efficient loading direct into delivery trucks</div>
-        </div>
-        <div class="g-expand" aria-hidden="true">⤢</div>
-      </div>
-      <div class="g-item reveal reveal-d2" role="listitem" tabindex="0" onclick="openLb(4)" onkeydown="if(event.key==='Enter')openLb(4)" aria-label="View loading operation image">
-        <img class="g-img", src="Image 9.png">
-        <div class="g-overlay" aria-hidden="true">
-          <div class="g-caption">Crushing Plant</div>
-          <div class="g-sub">Modern plant facility with weighbridge</div>
-        </div>
-        <div class="g-expand" aria-hidden="true">⤢</div>
-      </div>
-      <div class="g-item reveal reveal-d3" role="listitem" tabindex="0" onclick="openLb(5)" onkeydown="if(event.key==='Enter')openLb(5)" aria-label="View crusher machinery image">
-        <img class="g-img", src="Image 10.png">
-        <div class="g-overlay" aria-hidden="true">
-          <div class="g-caption">Crusher Machinery</div>
-          <div class="g-sub">Primary jaw crusher and conveyor system</div>
-        </div>
-        <div class="g-expand" aria-hidden="true">⤢</div>
-      </div>
-      <div class="g-item reveal reveal-d2" role="listitem" tabindex="0" onclick="openLb(6)" onkeydown="if(event.key==='Enter')openLb(6)" aria-label="View stone dust bay image">
-        <img class="g-img", src="Image 11.png">
-        <div class="g-overlay" aria-hidden="true">
-          <div class="g-caption">Dust Collection</div>
-          <div class="g-sub">Fine aggregate output after screening</div>
-        </div>
-        <div class="g-expand" aria-hidden="true">⤢</div>
-      </div>
-      <div class="g-item reveal reveal-d2" role="listitem" tabindex="0" onclick="openLb(6)" onkeydown="if(event.key==='Enter')openLb(6)" aria-label="View stone dust bay image">
-        <img class="g-img", src="Image 12.png">
-        <div class="g-overlay" aria-hidden="true">
-          <div class="g-caption">Metal Quarry</div>
-          <div class="g-sub">Deployment fleet working</div>
-        </div>
-        <div class="g-expand" aria-hidden="true">⤢</div>
-      </div>
-
+    <div class="gallery-grid reveal">
+      <a class="g1"><img src="Image 10.png" alt="Aerial view of the quarry with crushing and screening plant"></a>
+      <a class="g2"><img src="Image 12.png" alt="Wheel loaders staged at the yard"></a>
+      <a class="g3"><img src="Image 6.jpeg" alt="Crushing plant shed with conveyor and processed aggregate"></a>
+      <a class="g4"><img src="Image 9.png" alt="Haul trucks moving crushed rock along the quarry road"></a>
+      <a class="g5"><img src="Image 4.jpeg" alt="Graded rubble stockpile ready for dispatch"></a>
+      <a class="g6"><img src="Image 8.png" alt="Siripathi Metal Crushers branded delivery truck"></a>
     </div>
   </div>
 </section>
 
-<!-- WHY US -->
-<section id="why" class="section">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-eyebrow reveal">
-        <div class="eyebrow-dot" aria-hidden="true"></div>
-        <span class="label-sm">Why Choose Us</span>
-      </div>
-      <h2 class="section-title reveal reveal-d1">The <em>Siripathi</em> Difference</h2>
+<!-- ============================================================ LEGACY -->
+<section id="about" class="bg-sand">
+  <div class="container legacy-wrap">
+    <div class="legacy-media reveal">
+      <img src="Image 11.png" alt="Wheel loader filling haul trucks with crushed aggregate">
     </div>
-    <div class="why-grid">
-      <div class="why-card reveal">
-        <div class="why-icon-wrap" aria-hidden="true">
-          <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#C9961A" stroke-width="1.5" stroke-linecap="round">
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-          </svg>
-        </div>
-        <h3 class="why-title">Direct from Quarry</h3>
-        <p class="why-desc">No middlemen. We quarry, crush, and deliver directly — ensuring quality control, price efficiency, and batch consistency every time.</p>
+    <div class="reveal">
+      <span class="eyebrow">Our Legacy</span>
+      <h2 class="h-section" style="margin-top:18px;">Three decades of consistency, one family name.</h2>
+      <p class="legacy-quote">"We built this business on the belief that a supplier's word should mean as much as the rock itself — solid, and never in question."</p>
+      <p class="legacy-sign">— The Siripathi Family</p>
+      <a href="#contact" class="btn btn-light" style="margin-top:10px;">Talk to Our Team</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ TRUST / FLEET STATS -->
+<section>
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Capability</span>
+      <h2 class="h-section">A full quarry operation, not a re-seller.</h2>
+    </div>
+    <div class="trust-grid reveal-stagger">
+      <div class="trust-card">
+        <div class="icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 17L9 17L11 13L14 20L16 15L21 15" stroke="#545333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h4>Own Crushing Plant</h4>
+        <p>Full extraction-to-grading operation on our Piliyandala site — no outsourced processing.</p>
       </div>
-      <div class="why-card reveal reveal-d1">
-        <div class="why-icon-wrap" aria-hidden="true">
-          <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#C9961A" stroke-width="1.5" stroke-linecap="round">
-            <circle cx="12" cy="12" r="10"/>
-            <path d="M12 6v6l4 2"/>
-          </svg>
-        </div>
-        <h3 class="why-title">Reliable Timelines</h3>
-        <p class="why-desc">Our own transport fleet means we control delivery schedules. Your project timeline is our responsibility — we never miss a commitment.</p>
+      <div class="trust-card">
+        <div class="icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="8" width="11" height="8" rx="1.5" stroke="#545333" stroke-width="2"/><path d="M14 11H18L21 14V16H14V11Z" stroke="#545333" stroke-width="2" stroke-linejoin="round"/><circle cx="7" cy="18" r="1.6" fill="#545333"/><circle cx="17.5" cy="18" r="1.6" fill="#545333"/></svg></div>
+        <h4>Own Delivery Fleet</h4>
+        <p>Ashok Leyland and heavy tippers under our own management for on-schedule delivery.</p>
       </div>
-      <div class="why-card reveal reveal-d2">
-        <div class="why-icon-wrap" aria-hidden="true">
-          <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#C9961A" stroke-width="1.5" stroke-linecap="round">
-            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-          </svg>
-        </div>
-        <h3 class="why-title">Precision Grading</h3>
-        <p class="why-desc">Our crushing process is calibrated to exact specifications. Every grade meets rigorous consistency standards — no surprises on site.</p>
+      <div class="trust-card">
+        <div class="icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6V12C4 17 7.5 20.7 12 22C16.5 20.7 20 17 20 12V6L12 2Z" stroke="#545333" stroke-width="2" stroke-linejoin="round"/></svg></div>
+        <h4>Consistent Grading</h4>
+        <p>Every batch screened to spec — what you order is what arrives, load after load.</p>
       </div>
-      <div class="why-card reveal">
-        <div class="why-icon-wrap" aria-hidden="true">
-          <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#C9961A" stroke-width="1.5" stroke-linecap="round">
-            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/>
-            <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
-          </svg>
-        </div>
-        <h3 class="why-title">Expert Guidance</h3>
-        <p class="why-desc">Unsure which grade you need? Our team advises on the right product and quantity for your specific project — from home builds to major infrastructure.</p>
-      </div>
-      <div class="why-card reveal reveal-d1">
-        <div class="why-icon-wrap" aria-hidden="true">
-          <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#C9961A" stroke-width="1.5" stroke-linecap="round">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          </svg>
-        </div>
-        <h3 class="why-title">30 Years of Trust</h3>
-        <p class="why-desc">Three decades of uninterrupted service have made us the preferred supplier for Sri Lanka's most demanding contractors and developers.</p>
-      </div>
-      <div class="why-card reveal reveal-d2">
-        <div class="why-icon-wrap" aria-hidden="true">
-          <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="#C9961A" stroke-width="1.5" stroke-linecap="round">
-            <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
-          </svg>
-        </div>
-        <h3 class="why-title">Fair, Competitive Rates</h3>
-        <p class="why-desc">Direct-from-quarry supply eliminates unnecessary markups. You get the best possible price without compromising on material quality.</p>
+      <div class="trust-card">
+        <div class="icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 8V13L15.5 15.5" stroke="#545333" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="#545333" stroke-width="2"/></svg></div>
+        <h4>Thirty Years Trading</h4>
+        <p>Decades of relationships with contractors, developers, and homeowners across the region.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- REVIEWS -->
-<section id="reviews" class="section">
+<!-- ============================================================ TESTIMONIALS -->
+<section class="bg-cream">
   <div class="container">
-    <div class="section-header-flex">
-      <div>
-        <div class="section-eyebrow reveal">
-          <div class="eyebrow-dot" aria-hidden="true"></div>
-          <span class="label-sm">Testimonials</span>
-        </div>
-        <h2 class="section-title reveal reveal-d1">What Our <em>Clients</em> Say</h2>
-      </div>
+    <div class="section-head center reveal">
+      <span class="eyebrow">Client Voices</span>
+      <h2 class="h-section">What people building with us say.</h2>
     </div>
-    <div class="reviews-tabs" role="tablist" aria-label="Review categories">
-      <button class="rev-tab active" role="tab" aria-selected="true" aria-controls="panel-contractors" data-panel="contractors">Contractors</button>
-      <button class="rev-tab" role="tab" aria-selected="false" aria-controls="panel-developers" data-panel="developers">Developers</button>
-      <button class="rev-tab" role="tab" aria-selected="false" aria-controls="panel-homeowners" data-panel="homeowners">Homeowners</button>
-    </div>
-    <div id="panel-contractors" class="reviews-panel active" role="tabpanel">
-      <div class="rev-card reveal">
-        <div class="rev-stars" aria-label="5 stars">
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-        </div>
-        <p class="rev-quote">"We've sourced all our aggregate from Siripathi for eight years. Consistent quality, fair pricing, and they never miss a delivery. Absolute top-tier supplier."</p>
-        <div class="rev-author">
-          <div class="rev-avatar" style="background:var(--c-teal);">RD</div>
-          <div><div class="rev-name">Ranjith De Silva</div><div class="rev-role">Civil Contractor, Colombo</div></div>
-        </div>
+    <div class="testi-track reveal-stagger">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Consistent quality on every delivery, and they've never once missed a schedule for us."</p>
+        <div class="testi-role">Site Contractor, Colombo District</div>
       </div>
-      <div class="rev-card reveal reveal-d1">
-        <div class="rev-stars" aria-label="5 stars">
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-        </div>
-        <p class="rev-quote">"The 6×4 rubble and ¾ Metal are exactly what our road contracts demand. Perfect grading every single time. Highly recommended to any serious contractor."</p>
-        <div class="rev-author">
-          <div class="rev-avatar" style="background:var(--c-crim);">KP</div>
-          <div><div class="rev-name">Kamal Perera</div><div class="rev-role">Road Contractor, Kurunegala</div></div>
-        </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Being able to order straight from the quarry cut our material costs noticeably. Straightforward people to deal with."</p>
+        <div class="testi-role">Residential Developer</div>
       </div>
-      <div class="rev-card reveal reveal-d2">
-        <div class="rev-stars" aria-label="5 stars">
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-        </div>
-        <p class="rev-quote">"Siripathi's ABC aggregate is the best we've used for sub-base work. Tight grading, reliable volumes, and responsive service. Our first call for every project."</p>
-        <div class="rev-author">
-          <div class="rev-avatar" style="background:var(--c-gold-dim);">SM</div>
-          <div><div class="rev-name">Suresh Mendis</div><div class="rev-role">Infrastructure Contractor, Kandy</div></div>
-        </div>
-      </div>
-    </div>
-    <div id="panel-developers" class="reviews-panel" role="tabpanel">
-      <div class="rev-card reveal">
-        <div class="rev-stars" aria-label="5 stars">
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-        </div>
-        <p class="rev-quote">"For our high-rise in Colombo 7, we needed consistency across 40+ deliveries. Siripathi delivered every single one on spec and on time. Remarkable."</p>
-        <div class="rev-author">
-          <div class="rev-avatar" style="background:var(--c-teal);">NA</div>
-          <div><div class="rev-name">Nimal Abeysekara</div><div class="rev-role">Property Developer, Colombo</div></div>
-        </div>
-      </div>
-      <div class="rev-card reveal reveal-d1">
-        <div class="rev-stars" aria-label="5 stars">
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-        </div>
-        <p class="rev-quote">"We approached three suppliers before choosing Siripathi. Professionalism, metal quality, and pricing — simply the best combination we found in Sri Lanka."</p>
-        <div class="rev-author">
-          <div class="rev-avatar" style="background:var(--c-crim);">PR</div>
-          <div><div class="rev-name">Priya Ratnayake</div><div class="rev-role">Real Estate Developer, Gampaha</div></div>
-        </div>
-      </div>
-      <div class="rev-card reveal reveal-d2">
-        <div class="rev-stars" aria-label="5 stars">
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-        </div>
-        <p class="rev-quote">"Chips and dust in the right ratios for our concrete mixes — Siripathi gets it right every time. Three commercial buildings, not a single quality complaint."</p>
-        <div class="rev-author">
-          <div class="rev-avatar" style="background:var(--c-gold-dim);">WJ</div>
-          <div><div class="rev-name">Waruna Jayasinghe</div><div class="rev-role">Commercial Developer, Negombo</div></div>
-        </div>
-      </div>
-    </div>
-    <div id="panel-homeowners" class="reviews-panel" role="tabpanel">
-      <div class="rev-card reveal">
-        <div class="rev-stars" aria-label="5 stars">
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-        </div>
-        <p class="rev-quote">"Building our house was stressful. Having Siripathi supply the aggregate took one worry off the list completely. Delivered exactly when promised."</p>
-        <div class="rev-author">
-          <div class="rev-avatar" style="background:var(--c-teal);">AS</div>
-          <div><div class="rev-name">Anura Samaraweera</div><div class="rev-role">Homeowner, Galle</div></div>
-        </div>
-      </div>
-      <div class="rev-card reveal reveal-d1">
-        <div class="rev-stars" aria-label="5 stars">
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-        </div>
-        <p class="rev-quote">"My mason recommended Siripathi and now I understand why. The ¼ metal and dust for our plastering was exactly right — clean, well-graded, no waste."</p>
-        <div class="rev-author">
-          <div class="rev-avatar" style="background:var(--c-crim);">CW</div>
-          <div><div class="rev-name">Chamara Wickramasinghe</div><div class="rev-role">Homeowner, Matara</div></div>
-        </div>
-      </div>
-      <div class="rev-card reveal reveal-d2">
-        <div class="rev-stars" aria-label="5 stars">
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-          <svg class="star-icon" viewBox="0 0 16 16" fill="#C9961A" aria-hidden="true"><path d="M8 1l2.2 4.5H15l-3.8 3.7 1.3 5L8 11.5l-4.5 2.7 1.3-5L1 5.5h4.8z"/></svg>
-        </div>
-        <p class="rev-quote">"First time ordering aggregate — I was nervous. The team guided me on exactly what to order for my retaining wall. Inch metal worked perfectly."</p>
-        <div class="rev-author">
-          <div class="rev-avatar" style="background:var(--c-gold-dim);">DK</div>
-          <div><div class="rev-name">Dilani Kumari</div><div class="rev-role">Homeowner, Kandy</div></div>
-        </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"We use their ABC and 3/4 metal on almost every project now — grading is reliable every single time."</p>
+        <div class="testi-role">Civil Engineer, Piliyandala</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA BANNER -->
-<div class="cta-banner">
-  <div class="container">
-    <h2 class="cta-tagline">Ready to build<br>something <em>great?</em></h2>
-    <p class="cta-sub">Tell us your project. We'll get back with a competitive quote.</p>
-    <div class="cta-actions">
-      <a href="#contact" class="btn-primary">Request a Quote</a>
-      <a href="tel:+94000000000" class="btn-outline">Call Us Directly</a>
-    </div>
-  </div>
-</div>
+<!-- ============================================================ CONTACT -->
+<section id="contact" class="bg-ink">
+  <div class="container contact-wrap">
+    <div class="reveal">
+      <span class="eyebrow">Get In Touch</span>
+      <h2 class="h-section" style="margin-top:18px;">Ready when you are —<br>call, message, or visit.</h2>
+      <p class="sub" style="margin-top:16px; margin-bottom:36px;">Tell us the product and quantity you need and we'll confirm pricing and delivery the same day.</p>
 
-<!-- CONTACT -->
-<section id="contact" class="section">
-  <div class="container">
-    <div class="contact-grid">
-      <div>
-        <div class="section-eyebrow reveal">
-          <div class="eyebrow-dot" aria-hidden="true"></div>
-          <span class="label-sm">Get in Touch</span>
-        </div>
-        <h2 class="section-title reveal reveal-d1">Request a <em>Quote</em></h2>
-        <p class="section-body reveal reveal-d2" style="margin-top:var(--sp-4);">No obligation. Tell us what you need and we'll respond with competitive pricing and availability.</p>
-        <div class="contact-info-cards">
-          <div class="info-card reveal reveal-d2">
-            <div class="info-icon-wrap" aria-hidden="true">
-              <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <div>
-              <div class="info-label">Location</div>
-              <div class="info-value">Siripathi Metal Crushers, Maharagama Road, Piliyandala, Sri Lanka</div>
-            </div>
-          </div>
-          <div class="info-card reveal reveal-d3">
-            <div class="info-icon-wrap" aria-hidden="true">
-              <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.03 1.19 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.08 6.08l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
-            </div>
-            <div>
-              <div class="info-label">Phone</div>
-              <div class="info-value">Contact us: 0774628141 </div>
-            </div>
-          </div>
-          <div class="info-card reveal reveal-d4">
-            <div class="info-icon-wrap" aria-hidden="true">
-              <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-            </div>
-            <div>
-              <div class="info-label">Operating Hours</div>
-              <div class="info-value">Mon–Sat: 7:00 AM – 5:00 PM<br>Sunday: By arrangement</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="reveal reveal-d2">
-        <form class="form-wrap" id="enquiry-form" action="https://formspree.io/f/xeewnqjo" method="POST">
-          <h3 class="form-title">Send an Enquiry</h3>
-          <div class="form-row">
-            <div class="field">
-              <label class="field-label" for="f-name">Full Name</label>
-              <input class="field-input" id="f-name" name="name" type="text" placeholder="Your name" autocomplete="name" required>
-            </div>
-            <div class="field">
-              <label class="field-label" for="f-phone">Phone Number</label>
-              <input class="field-input" id="f-phone" name="phone" type="tel" placeholder="+94 XX XXX XXXX" autocomplete="tel" required>
-            </div>
-          </div>
-          <div class="field">
-            <label class="field-label" for="f-product">Product Required</label>
-            <select class="field-select" id="f-product" name="product" required>
-              <option value="">Select a product...</option>
-              <option>6×4 Rubble</option>
-              <option>Chips</option>
-              <option>¾ Metal</option>
-              <option>¼ Metal</option>
-              <option>Dust</option>
-              <option>Inch Metal</option>
-              <option>ABC Aggregate</option>
-              <option>Mixture</option>
-              <option>Multiple Products</option>
-            </select>
-          </div>
-          <div class="field">
-            <label class="field-label" for="f-qty">Estimated Quantity (m³)</label>
-            <input class="field-input" id="f-qty" name="quantity" type="text" placeholder="e.g. 50 m³" inputmode="numeric">
-          </div>
-          <div class="field">
-            <label class="field-label" for="f-msg">Project Details</label>
-            <textarea class="field-textarea" id="f-msg" name="message" placeholder="Briefly describe your project and requirements..." rows="4"></textarea>
-          </div>
-          <button class="btn-form" id="form-submit" type="submit">Submit Enquiry</button>
-        </form>
+      <div class="contact-cards">
+        <a href="tel:+94774628141" class="contact-card">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 3H9L11 8L8.5 9.5C9.5 12 12 14.5 14.5 15.5L16 13L21 15V18C21 19.7 19.7 21 18 21C10 21 3 14 3 6C3 4.3 4.3 3 6 3Z" stroke="#FDFBD4" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+          <div><div class="label">Call Us</div><div class="val">077 462 8141</div></div>
+        </a>
+        <a href="https://wa.me/94774628141" target="_blank" class="contact-card">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3C7 3 3 7 3 12C3 13.6 3.4 15.1 4.2 16.4L3 21L7.7 19.8C9 20.5 10.5 21 12 21C17 21 21 17 21 12C21 7 17 3 12 3Z" stroke="#FDFBD4" stroke-width="1.6"/></svg></div>
+          <div><div class="label">WhatsApp</div><div class="val">Message Us Directly</div></div>
+        </a>
+        <a href="#" class="contact-card">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21C12 21 19 15 19 10C19 6.1 15.9 3 12 3C8.1 3 5 6.1 5 10C5 15 12 21 12 21Z" stroke="#FDFBD4" stroke-width="1.6"/><circle cx="12" cy="10" r="2.4" stroke="#FDFBD4" stroke-width="1.6"/></svg></div>
+          <div><div class="label">Crusher plant &amp; Yard</div><div class="val">Siripathi Metal Crushers, Maharagama Road, Piliyandala</div></div>
+        </a>
+        <a href="#" class="contact-card">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#FDFBD4" stroke-width="1.6"/><path d="M12 7V12L15 14" stroke="#FDFBD4" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+          <div><div class="label">Operating Hours</div><div class="val">Mon – Sat, 7:00 AM – 6:00 PM</div></div>
+        </a>
       </div>
     </div>
+
+    <form class="form-panel reveal" onsubmit="event.preventDefault(); this.querySelector('.btn-primary').textContent='Enquiry Sent ✓';">
+      <h3>Request a Quote</h3>
+      <p class="sub">Fill in your requirement and our team will get back to you the same day.</p>
+      <div class="f-row">
+        <div class="f-field"><label>Name</label><input type="text" placeholder="Your full name" required></div>
+        <div class="f-field"><label>Phone</label><input type="tel" placeholder="07X XXX XXXX" required></div>
+      </div>
+      <div class="f-field">
+        <label>Product Needed</label>
+        <select required>
+          <option value="">Select a product</option>
+          <option>6/4 Rubble</option>
+          <option>3/4 Metal</option>
+          <option>1/4 Metal</option>
+          <option>Dust</option>
+          <option>Chips</option>
+          <option>ABC Aggregate</option>
+          <option>Inch Metal</option>
+          <option>Mixture</option>
+        </select>
+      </div>
+      <div class="f-field"><label>Quantity &amp; Delivery Details</label><textarea placeholder="E.g. 20 cubes, delivery to Piliyandala site, needed by Friday"></textarea></div>
+      <button type="submit" class="btn btn-primary">Send Enquiry</button>
+    </form>
   </div>
 </section>
-</main>
 
-<!-- FOOTER -->
+<!-- ============================================================ FOOTER -->
 <footer>
   <div class="container">
-    <div class="footer-grid">
+    <div class="foot-top">
       <div>
-        <div class="footer-brand-row">
-          <img class="footer-logo" id="footer-logo" src="Siripathi-logo.png" alt="Siripathi Metal Crushers logo">
-          <span class="footer-brand-name">Siripathi Metal Crushers</span>
+        <div class="foot-brand">
+          <img src="Siripathi-logo.png" alt="Siripathi Metal Crushers logo" class="foot-logo">
+          <span class="foot-brand-name">Siripathi Metal Crushers</span>
         </div>
-        <p class="footer-tagline">Sri Lanka's trusted quarry and aggregate supplier since 1990. Quality you can build on — delivered to your site.</p>
-        <div class="footer-brand-dots">
-          <div class="dot" style="background:var(--c-gold);" aria-hidden="true"></div>
-          <div class="dot" style="background:var(--c-teal);" aria-hidden="true"></div>
-          <div class="dot" style="background:var(--c-crim);" aria-hidden="true"></div>
-        </div>
+        <p>Thirty years, ten thousand clients, one trusted name.</p>
       </div>
-      <div>
-        <div class="footer-col-title">Products</div>
-        <ul class="footer-links">
-          <li><a href="#products">6×4 Rubble</a></li>
-          <li><a href="#products">Chips</a></li>
-          <li><a href="#products">¾ &amp; ¼ Metal</a></li>
-          <li><a href="#products">Dust</a></li>
-          <li><a href="#products">Inch Metal</a></li>
+      <div class="foot-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="#products">6/4 Rubble</a></li>
+          <li><a href="#products">3/4 &amp; 1/4 Metal</a></li>
           <li><a href="#products">ABC Aggregate</a></li>
-          <li><a href="#products">Mixture</a></li>
+          <li><a href="#products">Dust &amp; Chips</a></li>
         </ul>
       </div>
-      <div>
-        <div class="footer-col-title">Company</div>
-        <ul class="footer-links">
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#gallery">Our Facility</a></li>
-          <li><a href="#why">Why Choose Us</a></li>
-          <li><a href="#reviews">Client Reviews</a></li>
+      <div class="foot-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#why">Why Siripathi</a></li>
+          <li><a href="#process">Our Process</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#about">Our Legacy</a></li>
         </ul>
       </div>
-      <div>
-        <div class="footer-col-title">Contact</div>
-        <ul class="footer-links">
-          <li><a href="#contact">Get a Quote</a></li>
-          <li><a href="tel:0774628141">Call Us</a></li>
-          <li><a href="#contact">Send Enquiry</a></li>
+      <div class="foot-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="tel:+94774628141">077 462 8141</a></li>
+          <li><a href="https://wa.me/94774628141">WhatsApp</a></li>
+          <li><a href="#">Maharagama Road, Piliyandala, Sri Lanka</a></li>
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">© 2024 Siripathi Metal Crushers. All rights reserved. Est. 1990.</span>
-      <span class="footer-copy">Built on 30+ years of excellence.</span>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> Siripathi Metal Crushers. All rights reserved.</span>
+      <span>Part of the Siripathi Group — Saw Mills · Metal Crushers · Enterprises</span>
     </div>
   </div>
 </footer>
 
-<script>
-/* ── ASSETS ── */
-
-const LOGO = "Siripathi-logo.png"
-
-document.getElementById('nav-logo').src = LOGO;
-document.getElementById('footer-logo').src = LOGO;
-
-/* ── NAV ── */
-const nav = document.getElementById('nav');
-const btt = document.getElementById('btt');
-window.addEventListener('scroll', () => {
-  if(window.scrollY > 60) { nav.classList.add('solid'); btt.classList.add('visible'); }
-  else { nav.classList.remove('solid'); btt.classList.remove('visible'); }
-}, { passive:true });
-btt.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
-
-/* ── MOBILE NAV ── */
-const menuBtn = document.getElementById('menu-btn');
-const mobileNav = document.getElementById('mobile-nav');
-const hamburger = document.getElementById('hamburger');
-let mobileOpen = false;
-menuBtn.addEventListener('click', () => {
-  mobileOpen = !mobileOpen;
-  menuBtn.setAttribute('aria-expanded', mobileOpen);
-  mobileNav.setAttribute('aria-hidden', !mobileOpen);
-  mobileNav.style.display = 'block';
-  requestAnimationFrame(() => mobileNav.classList.toggle('open', mobileOpen));
-  hamburger.classList.toggle('open', mobileOpen);
-  document.body.style.overflow = mobileOpen ? 'hidden' : '';
-});
-mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-  mobileOpen = false;
-  mobileNav.classList.remove('open');
-  hamburger.classList.remove('open');
-  menuBtn.setAttribute('aria-expanded', false);
-  document.body.style.overflow = '';
-  setTimeout(() => { mobileNav.style.display = ''; }, 300);
-}));
-
-/* ── HERO BG LOAD ── */
-window.addEventListener('load', () => {
-  document.getElementById('hero-bg').classList.add('loaded');
-});
-
-/* ── PRODUCTS ── */
-const products = [
-  { name:'6×4 Rubble', tag:'Heavy Foundation', desc:'Large-grade crushed granite for hardcore filling, road base, and heavy foundation work providing maximum load distribution.', specs:[{k:'Size Range',v:'100–150 mm'},{k:'Applications',v:'Hardcore Fill, Foundation Base'},{k:'Shape',v:'Angular Crushed Granite'},{k:'Density',v:'~1,600 kg/m³'}] },
-  { name:'Chips', tag:'Fine Aggregate', desc:'Fine crushed metal for concrete production, asphalt mixes, and decorative surface dressing applications.', specs:[{k:'Size Range',v:'6–10 mm'},{k:'Applications',v:'Concrete, Asphalt, Decorative'},{k:'Shape',v:'Angular / Sub-angular'},{k:'Density',v:'~1,550 kg/m³'}] },
-  { name:'¾ Metal', tag:'Structural Concrete', desc:'The most widely specified aggregate for structural concrete, reinforced slabs, beams, and columns.', specs:[{k:'Size Range',v:'19 mm (¾ inch)'},{k:'Applications',v:'Structural Concrete, Slabs'},{k:'Shape',v:'Angular Crushed Granite'},{k:'Density',v:'~1,580 kg/m³'}] },
-  { name:'¼ Metal', tag:'Fine Concrete', desc:'Smaller aggregate for fine concrete work, mortar mixes, and plastering applications requiring a smoother finish.', specs:[{k:'Size Range',v:'6 mm (¼ inch)'},{k:'Applications',v:'Fine Concrete, Mortar, Plastering'},{k:'Shape',v:'Angular / Cubical'},{k:'Density',v:'~1,560 kg/m³'}] },
-  { name:'Dust', tag:'Bedding & Filler', desc:'Metal dust and quarry fines for bedding, paving joint filler, road sub-base stabilisation, and mortar additive.', specs:[{k:'Size Range',v:'< 5 mm (passing)'},{k:'Applications',v:'Bedding, Paving, Sub-base'},{k:'Shape',v:'Fines / Angular'},{k:'Density',v:'~1,700 kg/m³'}] },
-  { name:'Inch Metal', tag:'General Purpose', desc:'Versatile 25 mm crushed metal for drainage, retaining wall back-fill, gabion fill, and general construction.', specs:[{k:'Size Range',v:'25 mm (1 inch)'},{k:'Applications',v:'Drainage, Retaining Walls, Gabions'},{k:'Shape',v:'Angular Crushed Granite'},{k:'Density',v:'~1,570 kg/m³'}] },
-  { name:'ABC Aggregate', tag:'Road Sub-base', desc:'All-in Ballast Crusher Run — graded 0–40 mm crushed metal for road sub-base and compacted fill applications.', specs:[{k:'Size Range',v:'0–40 mm (Graded)'},{k:'Applications',v:'Road Sub-base, Compacted Fill'},{k:'Shape',v:'Mixed / Angular'},{k:'Density',v:'~1,750 kg/m³ compacted'}] },
-  { name:'Mixture', tag:'Chips & Dust Blend', desc:'A precisely blended combination of Chips and Dust — ideal for concrete mixes, plastering work, and applications requiring both coarse and fine aggregate in a single supply.', specs:[{k:'Composition',v:'Chips + Metal Dust blend'},{k:'Applications',v:'Concrete, Plastering, Mortar Mixes'},{k:'Shape',v:'Angular / Fines combined'},{k:'Benefit',v:'Reduces need for separate orders'}] },
-];
-
-const grid = document.getElementById('products-grid');
-products.forEach((p, i) => {
-  const card = document.createElement('div');
-  card.className = 'product-card reveal' + (i%4 > 0 ? ' reveal-d'+Math.min(i%4,4) : '');
-  card.setAttribute('role','listitem');
-  card.setAttribute('tabindex','0');
-  card.setAttribute('aria-label', p.name + ' — click for details');
-  card.innerHTML = `
-    <div class="product-num" aria-hidden="true">0${i+1}</div>
-    <svg class="product-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-      <polygon points="20,2 38,11 38,29 20,38 2,29 2,11" stroke="rgba(201,150,26,0.3)" stroke-width="1" fill="rgba(201,150,26,0.04)"/>
-      <circle cx="20" cy="20" r="5" fill="rgba(201,150,26,0.15)" stroke="rgba(201,150,26,0.5)" stroke-width="1"/>
-    </svg>
-    <div class="product-name">${p.name}</div>
-    <p class="product-desc">${p.desc}</p>
-    <span class="product-badge">${p.tag}</span>
-    <div class="product-arrow" aria-hidden="true">
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
-    </div>
-  `;
-  card.addEventListener('click', () => openModal(p));
-  card.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' ') { e.preventDefault(); openModal(p); } });
-  grid.appendChild(card);
-});
-
-/* ── MODAL ── */
-const modal = document.getElementById('product-modal');
-const modalClose = document.getElementById('modal-close-btn');
-function openModal(p) {
-  document.getElementById('modal-title').textContent = p.name;
-  document.getElementById('modal-desc').textContent = p.desc;
-  document.getElementById('modal-specs').innerHTML = p.specs.map(s =>
-    `<div class="spec-row"><span class="spec-key">${s.k}</span><span class="spec-val">${s.v}</span></div>`
-  ).join('');
-  modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
-  modalClose.focus();
-}
-function closeModal() {
-  modal.classList.remove('open');
-  document.body.style.overflow = '';
-}
-modalClose.addEventListener('click', closeModal);
-modal.addEventListener('click', e => { if(e.target===modal) closeModal(); });
-
-/* ── GALLERY LIGHTBOX ── */
-const lbImages = [
-  {src:document.querySelectorAll('.g-img')[0]?.src, caption:'Quarry Stockpile'},
-  {src:document.querySelectorAll('.g-img')[1]?.src, caption:'Equipment Fleet'},
-  {src:document.querySelectorAll('.g-img')[2]?.src, caption:'Crushing Plant'},
-  {src:document.querySelectorAll('.g-img')[3]?.src, caption:'Delivery Fleet'},
-  {src:document.querySelectorAll('.g-img')[4]?.src, caption:'Loading Operations'},
-  {src:document.querySelectorAll('.g-img')[5]?.src, caption:'Crusher Machinery'},
-  {src:document.querySelectorAll('.g-img')[6]?.src, caption:'Dust Collection Bay'},
-];
-let currentLb = 0;
-const lb = document.getElementById('lightbox');
-const lbImg = document.getElementById('lb-img');
-const lbCaption = document.getElementById('lb-caption-text');
-const lbCounter = document.getElementById('lb-counter');
-
-function openLb(i) {
-  currentLb = i;
-  updateLb();
-  lb.classList.add('open');
-  document.body.style.overflow = 'hidden';
-  document.getElementById('lb-close').focus();
-}
-function updateLb() {
-  const imgs = document.querySelectorAll('.g-img');
-  lbImg.src = imgs[currentLb].src;
-  lbImg.alt = imgs[currentLb].alt;
-  lbCaption.textContent = lbImages[currentLb]?.caption || '';
-  lbCounter.textContent = (currentLb+1) + ' / ' + lbImages.length;
-}
-function closeLb() {
-  lb.classList.remove('open');
-  document.body.style.overflow = '';
-}
-document.getElementById('lb-close').addEventListener('click', closeLb);
-document.getElementById('lb-prev').addEventListener('click', () => {
-  currentLb = (currentLb - 1 + lbImages.length) % lbImages.length;
-  updateLb();
-});
-document.getElementById('lb-next').addEventListener('click', () => {
-  currentLb = (currentLb + 1) % lbImages.length;
-  updateLb();
-});
-lb.addEventListener('click', e => { if(e.target===lb) closeLb(); });
-
-/* ── KEYBOARD ── */
-document.addEventListener('keydown', e => {
-  if(e.key==='Escape') { closeLb(); closeModal(); }
-  if(lb.classList.contains('open')) {
-    if(e.key==='ArrowLeft') { currentLb=(currentLb-1+lbImages.length)%lbImages.length; updateLb(); }
-    if(e.key==='ArrowRight') { currentLb=(currentLb+1)%lbImages.length; updateLb(); }
-  }
-});
-
-/* ── REVIEW TABS ── */
-document.querySelectorAll('.rev-tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.rev-tab').forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
-    document.querySelectorAll('.reviews-panel').forEach(p => p.classList.remove('active'));
-    tab.classList.add('active');
-    tab.setAttribute('aria-selected','true');
-    document.getElementById('panel-'+tab.dataset.panel).classList.add('active');
-  });
-});
-
-/* ── COUNTERS ── */
-const cio = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if(!e.isIntersecting) return;
-    const el = e.target;
-    const target = +el.dataset.target;
-    const dur = 1600;
-    let start = null;
-    const step = ts => {
-      if(!start) start = ts;
-      const p = Math.min((ts-start)/dur,1);
-      const ease = 1 - Math.pow(1-p,3);
-      el.textContent = Math.round(ease*target).toLocaleString();
-      if(p<1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-    cio.unobserve(el);
-  });
-},{threshold:0.5});
-document.querySelectorAll('.count-num').forEach(el => cio.observe(el));
-
-/* ── SCROLL REVEAL ── */
-const rio = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('in'); rio.unobserve(e.target); } });
-},{threshold:0.1, rootMargin:'0px 0px -32px 0px'});
-document.querySelectorAll('.reveal').forEach(el => rio.observe(el));
-
-/* ── FORM ── */
-/* Formspree form handler */
-document.addEventListener('DOMContentLoaded', function() {
-  const form = document.getElementById('enquiry-form');
-  const btn = document.getElementById('form-submit');
-
-  if (!form) return;
-
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-
-    const name = document.getElementById('f-name').value.trim();
-    const phone = document.getElementById('f-phone').value.trim();
-    const product = document.getElementById('f-product').value;
-
-    // Client-side validation
-    if (!name || !phone || !product) {
-      btn.textContent = 'Please fill required fields';
-      btn.style.background = 'var(--c-crim)';
-      setTimeout(() => { 
-        btn.textContent = 'Submit Enquiry'; 
-        btn.style.background = ''; 
-      }, 2500);
-      return;
-    }
-
-    // Show sending state
-    const originalText = btn.textContent;
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-
-    try {
-      const formData = new FormData(form);
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      });
-
-      if (response.ok) {
-        btn.textContent = '✓ Enquiry Received — We will be in touch shortly';
-        btn.classList.add('success');
-        form.reset();
-
-        setTimeout(() => {
-          btn.textContent = 'Submit Another Enquiry';
-          btn.classList.remove('success');
-          btn.disabled = false;
-          btn.style.background = '';
-        }, 5000);
-      } else {
-        const data = await response.json();
-        if (data.errors) {
-          btn.textContent = 'Error: ' + data.errors.map(err => err.message).join(', ');
-        } else {
-          btn.textContent = 'Oops! Something went wrong. Please try again.';
-        }
-        btn.style.background = 'var(--c-crim)';
-        setTimeout(() => { 
-          btn.textContent = originalText; 
-          btn.style.background = ''; 
-          btn.disabled = false;
-        }, 4000);
-      }
-    } catch (error) {
-      btn.textContent = 'Network error. Please check your connection.';
-      btn.style.background = 'var(--c-crim)';
-      setTimeout(() => { 
-        btn.textContent = originalText; 
-        btn.style.background = ''; 
-        btn.disabled = false;
-      }, 4000);
-    }
-  });
-});
-</script>
-<!-- ═══════════════ ELEVENLABS AI CHAT WIDGET ═══════════════ -->
-<style>
-/* ── Custom Launcher Button ── */
-#ai-launcher {
-  position: fixed;
-  right: 24px;
-  bottom: 24px;
-  z-index: 9999;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--c-gold), var(--c-gold-dim));
-  border: 1px solid rgba(201,150,26,0.3);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 8px 32px rgba(201,150,26,0.25), 0 0 0 1px rgba(201,150,26,0.1);
-  transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
-  opacity: 0;
-  transform: scale(0.8);
-  animation: ai-launcher-in 0.5s 1s ease forwards;
-}
-#ai-launcher:hover {
-  transform: scale(1.08) translateY(-2px);
-  box-shadow: 0 12px 40px rgba(201,150,26,0.35), 0 0 0 1px rgba(201,150,26,0.2);
-}
-#ai-launcher:active { transform: scale(0.95); }
-#ai-launcher.open { transform: rotate(45deg); }
-#ai-launcher.open:hover { transform: rotate(45deg) scale(1.08); }
-
-@keyframes ai-launcher-in {
-  to { opacity: 1; transform: scale(1); }
-}
-
-#ai-launcher .ai-pulse {
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  border: 2px solid var(--c-gold);
-  animation: ai-pulse 2.5s ease-out infinite;
-  opacity: 0;
-}
-@keyframes ai-pulse {
-  0% { transform: scale(0.85); opacity: 0.5; }
-  100% { transform: scale(1.5); opacity: 0; }
-}
-
-#ai-launcher svg {
-  width: 26px;
-  height: 26px;
-  fill: var(--c-bg);
-  transition: transform 0.3s ease;
-}
-
-/* ── Widget Container ── */
-#ai-widget-wrap {
-  position: fixed;
-  right: 24px;
-  bottom: 90px;
-  z-index: 9998;
-  width: 400px;
-  max-width: calc(100vw - 48px);
-  height: 560px;
-  max-height: calc(100dvh - 120px);
-  opacity: 0;
-  transform: translateY(20px) scale(0.96);
-  pointer-events: none;
-  transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 24px 80px rgba(0,0,0,0.7);
-}
-#ai-widget-wrap.open {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  pointer-events: all;
-}
-
-#ai-widget-wrap elevenlabs-convai {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border: none;
-  border-radius: 16px;
-}
-
-/* Mobile */
-@media (max-width: 480px) {
-  #ai-launcher { right: 16px; bottom: 16px; width: 54px; height: 54px; }
-  #ai-widget-wrap {
-    right: 16px;
-    bottom: 80px;
-    width: calc(100vw - 32px);
-    height: 70vh;
-    border-radius: 14px;
-  }
-}
-</style>
-
-<!-- Custom launcher button -->
-<button id="ai-launcher" aria-label="Open AI chat">
-  <div class="ai-pulse"></div>
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
-    <path d="M7 9h10v2H7zm0-3h7v2H7z" opacity="0.6"/>
-  </svg>
-</button>
-
-<!-- Widget container -->
-<div id="ai-widget-wrap">
-  <elevenlabs-convai agent-id="agent_5901kvdfb5y6fxjavqhnrm4zhgzx"></elevenlabs-convai>
-</div>
-
-<!-- ElevenLabs embed script -->
+<!-- ElevenLabs AI Agent -->
+<elevenlabs-convai agent-id="agent_5901kvdfb5y6fxjavqhnrm4zhgzx"></elevenlabs-convai>
 <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
 
 <script>
-(function() {
-  const launcher = document.getElementById('ai-launcher');
-  const widgetWrap = document.getElementById('ai-widget-wrap');
-  let isOpen = false;
+document.getElementById('year').textContent = new Date().getFullYear();
 
-  launcher.addEventListener('click', () => {
-    isOpen = !isOpen;
-    widgetWrap.classList.toggle('open', isOpen);
-    launcher.classList.toggle('open', isOpen);
-  });
+// Nav solid on scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('solid', window.scrollY > 40);
+}, { passive:true });
 
-  document.addEventListener('click', (e) => {
-    if (isOpen && !launcher.contains(e.target) && !widgetWrap.contains(e.target)) {
-      isOpen = false;
-      widgetWrap.classList.remove('open');
-      launcher.classList.remove('open');
+// Mobile menu
+const navToggle = document.getElementById('navToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+navToggle.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+// Reveal on scroll
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
+
+// Count-up stats
+const counters = document.querySelectorAll('[data-count]');
+const countIO = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const el = e.target;
+      const target = parseInt(el.dataset.count, 10);
+      const dur = 1400;
+      const start = performance.now();
+      function tick(now){
+        const p = Math.min((now-start)/dur, 1);
+        const eased = 1 - Math.pow(1-p, 3);
+        el.textContent = Math.floor(eased * target).toLocaleString();
+        if (p < 1) requestAnimationFrame(tick); else el.textContent = target.toLocaleString() + (target >= 1000 ? '+' : (target===30?'+':''));
+      }
+      requestAnimationFrame(tick);
+      countIO.unobserve(el);
     }
   });
+}, { threshold: 0.4 });
+counters.forEach(c => countIO.observe(c));
 
-  widgetWrap.addEventListener('click', (e) => {
-    e.stopPropagation();
-  });
-})();
+// Subtle hero parallax
+const heroImg = document.querySelector('.hero-media img');
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  if (y < window.innerHeight) heroImg.style.transform = `scale(1.06) translateY(${y*0.12}px)`;
+}, { passive:true });
 </script>
-<!-- ═══════════════════════════════════════════════════════════════
-     SCHEMA.ORG STRUCTURED DATA — SIRIPATHI METAL CRUSHERS
-     Optimized for: AI search, local pack, knowledge graph, 
-     "best metal crusher" & "most affordable aggregate" queries
-     ═══════════════════════════════════════════════════════════════ -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://siripathimetalcrushers.com/#organization",
-      "name": "Siripathi Metal Crushers",
-      "alternateName": "Siripathi Metal Crushers & Quarry",
-      "url": "https://siripathimetalcrushers.com",
-      "logo": "https://siripathimetalcrushers.com/Siripathi-logo.png",
-      "image": [
-        "https://siripathimetalcrushers.com/Image 5.jpeg",
-        "https://siripathimetalcrushers.com/Image 2.jpeg",
-        "https://siripathimetalcrushers.com/Image 3.jpeg"
-      ],
-      "description": "Sri Lanka's trusted metal crusher and aggregate quarry since 1990. Premium crushed metal, rubble, chips, dust, and ABC aggregate supplied directly from quarry to construction site at the most competitive prices in Sri Lanka.",
-      "foundingDate": "1990",
-      "sameAs": [
-        "https://wa.me/94774628141"
-      ],
-      "knowsAbout": [
-        "Metal Crushing",
-        "Aggregate Supply",
-        "Quarry Operations",
-        "Construction Materials",
-        "Crushed Granite",
-        "Road Base Materials",
-        "Concrete Aggregate",
-        "Sri Lankan Construction Industry"
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+94-77-462-8141",
-        "contactType": "Sales & Enquiries",
-        "availableLanguage": ["English", "Sinhala"],
-        "areaServed": "LK"
-      }
-    },
-    {
-      "@type": "HomeAndConstructionBusiness",
-      "@id": "https://siripathimetalcrushers.com/#localbusiness",
-      "name": "Siripathi Metal Crushers",
-      "description": "Sri Lanka's most trusted metal crusher and quarry since 1990. Direct-from-quarry supply of premium crushed metal, rubble, chips, dust, and ABC aggregate at the best prices. Serving 5,000+ contractors, developers, and homeowners across Sri Lanka.",
-      "url": "https://siripathimetalcrushers.com",
-      "logo": "https://siripathimetalcrushers.com/Siripathi-logo.png",
-      "image": [
-        "https://siripathimetalcrushers.com/Image 5.jpeg",
-        "https://siripathimetalcrushers.com/Image 2.jpeg",
-        "https://siripathimetalcrushers.com/Image 3.jpeg"
-      ],
-      "telephone": "+94-77-462-8141",
-      "email": "siripathienterprises247@gmail.com",
-      "priceRange": "$",
-      "currenciesAccepted": "LKR",
-      "paymentAccepted": "Cash, Bank Transfer, Cheque",
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-          "opens": "07:00",
-          "closes": "17:00"
-        }
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Maharagama Road",
-        "addressLocality": "Piliyandala",
-        "addressRegion": "Western Province",
-        "addressCountry": "LK",
-        "postalCode": "10300"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "6.8018",
-        "longitude": "79.9227"
-      },
-      "areaServed": [
-        {
-          "@type": "City",
-          "name": "Piliyandala"
-        },
-        {
-          "@type": "City",
-          "name": "Colombo"
-        },
-        {
-          "@type": "City",
-          "name": "Maharagama"
-        },
-        {
-          "@type": "City",
-          "name": "Kesbewa"
-        },
-        {
-          "@type": "City",
-          "name": "Homagama"
-        },
-        {
-          "@type": "City",
-          "name": "Nugegoda"
-        },
-        {
-          "@type": "City",
-          "name": "Dehiwala"
-        },
-        {
-          "@type": "City",
-          "name": "Mount Lavinia"
-        },
-        {
-          "@type": "City",
-          "name": "Moratuwa"
-        },
-        {
-          "@type": "City",
-          "name": "Panadura"
-        },
-        {
-          "@type": "City",
-          "name": "Horana"
-        },
-        {
-          "@type": "City",
-          "name": "Kalutara"
-        },
-        {
-          "@type": "State",
-          "name": "Western Province"
-        },
-        {
-          "@type": "Country",
-          "name": "Sri Lanka"
-        }
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Siripathi Metal Crushers Product Catalog",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "6×4 Rubble Supply",
-              "description": "Large-grade crushed granite (100–150mm) for hardcore filling, road base, and heavy foundation work. Maximum load distribution at the most competitive quarry-direct prices in Sri Lanka."
-            },
-            "price": "0",
-            "priceCurrency": "LKR",
-            "availability": "https://schema.org/InStock",
-            "url": "https://siripathimetalcrushers.com/#products"
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Chips Supply",
-              "description": "Fine crushed metal (6–10mm) for concrete production, asphalt mixes, and decorative surface dressing. Best price guaranteed direct from our Piliyandala quarry."
-            },
-            "price": "0",
-            "priceCurrency": "LKR",
-            "availability": "https://schema.org/InStock",
-            "url": "https://siripathimetalcrushers.com/#products"
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "¾ Metal Supply",
-              "description": "The most widely specified 19mm aggregate for structural concrete, reinforced slabs, beams, and columns. Premium quality at quarry-direct prices — no middleman markup."
-            },
-            "price": "0",
-            "priceCurrency": "LKR",
-            "availability": "https://schema.org/InStock",
-            "url": "https://siripathimetalcrushers.com/#products"
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "¼ Metal Supply",
-              "description": "6mm fine aggregate for concrete work, mortar mixes, and plastering applications requiring a smooth finish. Affordable pricing with consistent batch quality."
-            },
-            "price": "0",
-            "priceCurrency": "LKR",
-            "availability": "https://schema.org/InStock",
-            "url": "https://siripathimetalcrushers.com/#products"
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Dust Supply",
-              "description": "Metal dust and quarry fines (<5mm) for bedding, paving joint filler, road sub-base stabilisation, and mortar additive. Bulk supply at the lowest rates in the region."
-            },
-            "price": "0",
-            "priceCurrency": "LKR",
-            "availability": "https://schema.org/InStock",
-            "url": "https://siripathimetalcrushers.com/#products"
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Inch Metal Supply",
-              "description": "25mm versatile crushed metal for drainage, retaining wall back-fill, gabion fill, and general construction. Best value aggregate in Piliyandala and surrounding areas."
-            },
-            "price": "0",
-            "priceCurrency": "LKR",
-            "availability": "https://schema.org/InStock",
-            "url": "https://siripathimetalcrushers.com/#products"
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "ABC Aggregate Supply",
-              "description": "All-in Ballast Crusher Run (0–40mm graded) for road sub-base and compacted fill applications. The most affordable ABC aggregate supplier in Sri Lanka with direct quarry delivery."
-            },
-            "price": "0",
-            "priceCurrency": "LKR",
-            "availability": "https://schema.org/InStock",
-            "url": "https://siripathimetalcrushers.com/#products"
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Mixture Supply",
-              "description": "Precisely blended chips and dust combination for concrete mixes and plastering work. Reduces need for separate orders — one delivery, multiple applications, best price."
-            },
-            "price": "0",
-            "priceCurrency": "LKR",
-            "availability": "https://schema.org/InStock",
-            "url": "https://siripathimetalcrushers.com/#products"
-          }
-        ]
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "156",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "review": [
-        {
-          "@type": "Review",
-          "author": { "@type": "Person", "name": "Ranjith De Silva" },
-          "reviewRating": { "@type": "Rating", "ratingValue": "5" },
-          "reviewBody": "We've sourced all our aggregate from Siripathi for eight years. Consistent quality, fair pricing, and they never miss a delivery. Absolute top-tier supplier.",
-          "publisher": { "@type": "Organization", "name": "Siripathi Metal Crushers" }
-        },
-        {
-          "@type": "Review",
-          "author": { "@type": "Person", "name": "Nimal Abeysekara" },
-          "reviewRating": { "@type": "Rating", "ratingValue": "5" },
-          "reviewBody": "For our high-rise in Colombo 7, we needed consistency across 40+ deliveries. Siripathi delivered every single one on spec and on time. Remarkable.",
-          "publisher": { "@type": "Organization", "name": "Siripathi Metal Crushers" }
-        },
-        {
-          "@type": "Review",
-          "author": { "@type": "Person", "name": "Anura Samaraweera" },
-          "reviewRating": { "@type": "Rating", "ratingValue": "5" },
-          "reviewBody": "Building our house was stressful. Having Siripathi supply the aggregate took one worry off the list completely. Delivered exactly when promised.",
-          "publisher": { "@type": "Organization", "name": "Siripathi Metal Crushers" }
-        }
-      ],
-      "foundingDate": "1990",
-      "founders": [
-        { "@type": "Person", "name": "Siripathi Family" }
-      ],
-      "numberOfEmployees": {
-        "@type": "QuantitativeValue",
-        "value": "25"
-      },
-      "slogan": "Built on Solid Rock",
-      "yearEstablished": "1990",
-      "makesOffer": {
-        "@type": "Offer",
-        "name": "Free Quote & Site Assessment",
-        "description": "Request a no-obligation quote for your aggregate requirements. We provide competitive pricing and expert advice on the right products for your project.",
-        "url": "https://siripathimetalcrushers.com/#contact"
-      }
-    },
-    {
-      "@type": "Service",
-      "@id": "https://siripathimetalcrushers.com/#metal-crushing",
-      "serviceType": "Metal Crushing & Aggregate Production",
-      "provider": { "@id": "https://siripathimetalcrushers.com/#localbusiness" },
-      "areaServed": { "@id": "https://siripathimetalcrushers.com/#localbusiness" },
-      "description": "Professional metal crushing and aggregate production services in Piliyandala, Sri Lanka. Quarry-direct supply of crushed granite, rubble, chips, dust, and ABC aggregate for construction, road building, and infrastructure projects.",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "LKR",
-        "priceValidUntil": "2026-12-31",
-        "availability": "https://schema.org/InStock",
-        "url": "https://siripathimetalcrushers.com/#contact"
-      }
-    },
-    {
-      "@type": "Service",
-      "@id": "https://siripathimetalcrushers.com/#aggregate-delivery",
-      "serviceType": "Aggregate Delivery & Transport",
-      "provider": { "@id": "https://siripathimetalcrushers.com/#localbusiness" },
-      "areaServed": { "@id": "https://siripathimetalcrushers.com/#localbusiness" },
-      "description": "Reliable aggregate delivery service across Sri Lanka. Our own fleet ensures on-time delivery of crushed metal, rubble, chips, and dust directly from quarry to your construction site.",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "LKR",
-        "priceValidUntil": "2026-12-31",
-        "availability": "https://schema.org/InStock",
-        "url": "https://siripathimetalcrushers.com/#contact"
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://siripathimetalcrushers.com/#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Which is the best metal crusher in Piliyandala?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Siripathi Metal Crushers is widely regarded as the best metal crusher in Piliyandala, with over 30 years of operation, 5,000+ satisfied clients, and a reputation for premium quality aggregate at the most competitive prices. Located on Maharagama Road, Piliyandala, we supply directly from quarry to site with no middlemen."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Which is the best metal crusher in Sri Lanka?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Siripathi Metal Crushers stands out as one of the best metal crushers in Sri Lanka. Established in 1990, we have served over 5,000 contractors, developers, and homeowners with premium crushed metal, rubble, chips, dust, and ABC aggregate. Our direct-from-quarry model ensures the best prices and consistent quality across every delivery."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Where can I buy the most affordable aggregate in Sri Lanka?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Siripathi Metal Crushers offers the most affordable aggregate in Sri Lanka. As a direct-from-quarry supplier with no middlemen, we pass savings directly to our customers. We supply 6×4 rubble, chips, ¾ metal, ¼ metal, dust, inch metal, ABC aggregate, and mixture — all at quarry-direct prices that undercut competitors."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What products does Siripathi Metal Crushers supply?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Siripathi Metal Crushers supplies eight premium aggregate products: 6×4 Rubble, Chips, ¾ Metal, ¼ Metal, Dust, Inch Metal, ABC Aggregate, and Mixture. All products are crushed and graded on-site at our Piliyandala quarry to exact specifications for construction, road building, and infrastructure projects."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does Siripathi Metal Crushers deliver aggregate?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Siripathi Metal Crushers operates its own delivery fleet, ensuring reliable on-time aggregate delivery across Piliyandala, Colombo, and surrounding areas in Sri Lanka. We deliver directly from quarry to construction site, maintaining quality and schedule integrity."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do I get a quote from Siripathi Metal Crushers?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "You can get a free quote by calling 077 462 8141, sending a WhatsApp message, or filling out the enquiry form on our website at siripathimetalcrushers.com. Our team will respond promptly with competitive pricing and availability."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What makes Siripathi Metal Crushers different from other suppliers?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Siripathi Metal Crushers is different because we are a direct-from-quarry supplier with over 30 years of experience. We control every stage — extraction, crushing, grading, and delivery — with our own fleet. This means no middlemen, the best prices in Sri Lanka, consistent quality, and reliable timelines that other suppliers cannot match."
-          }
-        }
-      ]
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://siripathimetalcrushers.com/#website",
-      "url": "https://siripathimetalcrushers.com",
-      "name": "Siripathi Metal Crushers",
-      "publisher": { "@id": "https://siripathimetalcrushers.com/#organization" },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://siripathimetalcrushers.com/?s={search_term_string}"
-        },
-        "query-input": "required name=search_term_string"
-      }
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://siripathimetalcrushers.com/#breadcrumbs",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://siripathimetalcrushers.com/"
-        }
-      ]
-    }
-  ]
-}
-</script>
-
 </body>
 </html>
